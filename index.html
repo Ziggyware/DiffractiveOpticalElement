@@ -1,0 +1,1944 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>DOE — the picture is not in here</title>
+<meta name="description" content="A real-time WebGL2 demoscene piece: a nanoscale diffractive optical element, its 512x512 etched phase mask, and the holographic replay field computed by live scalar diffraction FFTs at 640/532/450 nm. The image exists nowhere in this file; it only appears where the simulated light lands.">
+<meta name="theme-color" content="#07080a">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DOE — the picture is not in here">
+<meta property="og:description" content="Simulated nano-optics: an etched phase mask and its holographic replay. Three FFTs, one mask, three scales. Nothing here is a picture — until light hits it.">
+<meta property="og:site_name" content="DOE">
+<meta property="og:image" content="data:image/png;base64,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">
+<meta property="og:image:width" content="320">
+<meta property="og:image:height" content="168">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DOE — the picture is not in here">
+<meta name="twitter:description" content="A WebGL2 diffractive-optics demoscene: etched phase mask + holographic replay field from live FFTs. The picture exists only in the light.">
+<meta name="twitter:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAACoBAMAAABj3irCAAAAMFBMVEUHCAoOERYaHyg3PENUWF9xdXqNkZaqrrHHys3k5+jSjDT/s0fW4O7w9vzN2uz4+v8Okz64AAAOpklEQVR42u1dUW4bSQ6dK/gsi70BKWC+Qxbg/64Gch8rQM6SO+UMC5KPrGpJziSYkmBDK0xsjbqdfmYVyUcWyfxFK1+qov4iFbJv9hERa1xgYZX6iO27ComS+B0sdlX8Y2JhIWX9ayE8ewoQ+mPskWxPiocbfFFRkfhN7GO7T/w+A2yfa2Alv0pPBtDXjny97MHxxZ5oayWxwvXi+EJsv4j9Wg5RWPxmxk+o/EX08piXASTBw7VAuXyF7bexK74Mfo9dkYcCJOaUW+DSlKjYJbJtYB8Rh/B8vzwQoEuLQ9EpcDE56NymyrX6rsAPXuIPD9B1QaAVxES5xA4MyPGf6Tz5itNDAbpVUQnxzLJ0kcVVJTfjcZUL4E97vfy0d3gfr3j7s75d3/lyuP9XAMO7uFjC0pn9YbFvuazE4YHCSvq6PxBgCM+tr5QCE3Yd5RtlhSDDHtUS/6w/88N+/vLP9f2fGaCSmzsZ0Nw5uk22C8pie9Kdiy2x84lJSX4P4Mu/AWjbLhxy6DIct38xPNLDlvP4Hf5Ygv8GYJmUUBfTWaZYZffAkKoLVCFaliPAUIBpz+f7dwCWkvyOoXb/X1sNvti/UFhpofC/HA45rn4ygDeX+BcAD5//BsDiBraAsayAp7Dd7BpN7N7GPngcwHBh2Hmutk4cOWMBNpIl4V1keJk/BHhlZn6+/IGZcb00Pl10NpwevAYJZOzwPXIpT/IQgG6NcyVdT93UaUlNQVNZQHbeMTOzq3sZjvBlUhi4vav7PzNAbLggzv50Y88ExhXujeJD+6Nf/isTWXgMYQURNSVl334Ak4EAU/no3W+etfgRAO3hLchCGkCn1WAH4Vhwn5g4+ZGEtUNPfXFVEgc2ngSdFXdwKmEc6aGU/8MDTA6gkYtJpuUpGKM5ZN/TEZLrDekj96DzQXto432iqgxyWgJF+glW5wsA/rBXfMPf9yP+1Mf1ub/H1elOfH51/1GLk/1FfK5bJmMSag/X5+gigHkgQJOghmUO1tq2ojZwccPzIUEzLfH8yADij711pa4eAF69/2wAJdNaMrJbapwrU16nXimHTB3ppMXXMH78CuAE4zcBunEhJAQrEkmeyuWfx+/gaa/HAcyoQzK0lJEsLClKSTD9zAHgy7S3fa//AuDLpdpMWnZLR+DqMtWRwW+8992YmVhzcA6426/zyQC+3Nr67wB8Z4kv754AcpFlEZ4TmLX04eo8tqfLuPjuAJUqL53pUxVtrEn0h/9wfMTXSrIC4MuP9wCmlYmkAmsLZ5zxJWeegUrHD1Hd3QE21co9J1RWqfDNs5ZyOAWYDPW80a9d3fzIf3B10/vPBjCUgpK0DOqs2ozj09BqVtDDh1L+oQhcNprBW8YncRZBHORm1uK7vzx/zqqtg1rliQnkljGJDIfy2KguFpOUm0a+X0f+fM5nMtB6EE30f4AXe5A6y0QWQm37zBc4tV2OyaMHxMXFYPbpvFMiVwitwHGT4GBPHpxZkEH0xsmwgABSQM0ctRMG5oeGnaHA5XVZfDvGqRjwpnn2PJ0n29eeuLMbXQ9x/e/HWuXrIwBsSKEFca4QPBaPqHnosWsu5sysEUNNRBth59qahdfvly+eHieHK98y/vh+80WrAfpfeA1QVXZbyr1fQjlvWM7bABs8ydo9+PcNgCm/rnwtQVvn2wDvsMQfHODJtO71PYAOph+XGErd3wO4fIlV+OstJdnDx566XgJ0KthuAxSVjRcX9txa4tZJTyZek+HFEptN2rS9J0G+g6H+emsrkbYtfOxRgh0W8P09KE8GMO2g+N4yMtLi6WeFDfQ8fyqN3ft26rviFv+xHpVSW5DC5XtQXkv/guRRq6f7lbm+7DWukJuZt41coB1JhhYscbEEOZSEw0NEasMBmqN1gGI64/62id37Zr7OAVZ0Mscry31xSvA0JBUSbADoZM9Fxc326zl98dnoC0ti5NZp1ycEqLkHtUrsYv2GkkCBqHdXEu5BFlKlR1ivuh4g9qBQgwGBoz1zApSBgkOLuYRsP9T2iAMQ3K01Mwbxtdw8HZY4tRjCsUyN33sW3aUs0UlHxWgEUPdZ4mLFVlWLp28aJNR2YITGCjOzpxaDjM/pQnkygCyMJc6DdGywb2Z2J+7lVhx28EvuAhnRu+5slnr5Em/wxRkW2V4LLW5dKCUo1Lhc3dnKZxKguse2r8Sn7lUqawGSCrSYTGS9zEwpSWDzytXN7z0nzz6PlHoLi9NRu7VQi5uwAwwNdpq69+LOfqXnyeZeWlxmJgsLPdFpKDc5PRdA20WxxLq3znto5CXdCk/S9h5L3BhL7FbQL8ZaS8dh4kIJ6t6hxY1tb/FkqHU21HFS8zpf+Ta8IHagrPfFGXYSiolap+Fo9/LSexO2DRBm5lbgftaNRfaoo175ktPrMdJU8j34beOU4KlLJFKxB41HXwF8q59/KoBMDXxQUPbSE+BZeOzBKq1NgLeWmOESFyuJUPli2ZDuvaRbknnE2IMn3HIhwRNFYLKYLLTuro73BkK8Q4stonL1ST5t+cC/U1bXEtyzono5m3EtPtlWQ9lEUBWWHlosJxxeU4+w87YW73ofRv3hAXLFJEH68ulvVErStm5+hAYfvKkkcUa2um2NObS4w5CYPU5fHJmt3YEHX0FUh6ScB34nBon0uGTn5UoCgKwN1JgzKteWEuySzgxLfHR1vAu0qK+3gwkQZ/ueWuB6+rji52HtuMTnU1dq2uQYez4VQJpiEuzBE3JrIzczmhI1tXhPRi3g4FXZtdwOMh/Sb6ELl3RrBG6v8NIl5L3OU+7jiys/WGaGrgAyjoqbMh/54Ja9YPGzcVgr9zHUssfJmzEXOSaPLNVvksq4uAz1WbMAPIsvRaU/IcCkW6is7EkWeKNMHuUOPWrxmx1EtlEyg+KAtQBb7sHaTLeCpuSDp6+Ii2nOUR+Sb6sZNTje9zjisj3eK2QDwB01MrtGVPdGsERvh0Pj+kUWa3EwlO9eKc3UPcjF07kkSFhETlfH07GTjtIPWc6oPwHAOYEpcPeHJd5RK+Cb7RVZ/rELpFqLvS5F7sUHZc/iWSY+0K2pA/+CD54jBqz6AdZ7ZFh5aDFCj/+EDdkmwmpFq30kMEuLZe5978HeFh/knLbb58V0UktFX3LnNy8RfbckwEtCngsg5UHO8VyaIzqx5NXx8P8sca7DjzovNiHeLkvpvXmtzsVxLNT19G5JwHIzwzckGINSUHt5VVSh+m7djJ+HPaCwh04a+QS5rO8o7/awkoCPD/DWHmz95NMo6GqJzyBe75Wl3OU49rrq49Snmt+ruhluv5Dg6swCTf0OVa7YR5mbZEdVemoBbTDeyH5erFG20BA28XpGHfbYAro+V9EGQp67hfTiFTWXmt2x0R+mzwVwx7Mb2nKp9dEe6SXnjbxUJXrt29YJcz1iIpJivkEUjEiWyq+VYPauo1AW24+iNNPPlxTtzqdm4R1XZXBMqAi8XPH9ci2u2UuuD4RSkzGSAq2HBP+cB4ejNrjRdJS7mm5Vy9w+GjK0C8oEIaEREwnyL93PdbyCykvSp14JfTKAVlaxI63CfoCOte2Y9dA0ipL7gMmj1Ih1qmlG89DiPUiYHDPGwJG3RIpnTlWmeVvIoXZ0auSYCtu34P28vAq4/urwu2lcGDXTOjW6FAPrQjS1EbnchepIdrmSRKNXTF7KZrlMxjRT0Wi5cTF2L1pnqv7iar2TcpLyZACRtxXPMTDJ6OpLvLOD61Mmy61631H2EYNL7hMXE7qb0dk1+10Oa2JBCHqIfdpfc+0Z7WLkp1TW4EnryQIa0wRdpDkYY8omKCQDHxgio6wm41PPgYB+TEC0eA/mWC/Y6Ow23blOj6ZefK4pVm5SOAopmEYXpS4vsv3YAMk0sXpaxOtmJNtJOBureLLiYsVUorSRHDtJuNRqcc1CNdSAA0pOB42JGYTTp8yRY/xlXA82RDmRBPp1B7KA8YGtKY9JeTx5OV/JmjCIIZ00e+EYWnaHKmBsnTAvhImWkU1LzY21xwQDjAqQGt8anGLDXEz7yScDmFso918VHQfTielVXsgYI6wa4tS21dRJUZpH663WYnAtG0hFEJD45Es5BnFuxqEVUadFVgwFwUvGXn05m3FP4qaP0E1KOUZttLdL1sFXpzHm/mpNmRmVrIubDXJIGkaJbGGZYX5GtynnzqPhqUdfJVtFLt3hIOfDAxy+bSIDuaGmp0vMFTJ12S10phxlPKy6xG5ZneXH7FSv6WFM0YrxWowHw4tU6Iux06OP3OcjTgmS1aXykoZPZBrskUOIMQ82kwvuqXNlaZL56EURWl6BqRiOhwFqaXsp6nz4OCNAZ6MJMUa7LLz6HbrCPjbAocWqRVyODCo1CVwg5m05oXGr6eOCfZAi9u/y5BFYa+ZLc4KRyuZqq8h3RdiC3yH0Z5gZDC3zSG+9mUmHIchJxv9SjmfMsTLFvAm5wIvRMzgy5sWE1a0a8ZQszXNPOGPMwOScnRyjk6V6mVzIvgQ+KI7lqQAyFEVouP6cXjWNc3OYzgiiDYyjOSJycTH53gg2rS9LiSbyMBWEOaBSux0emdG1NGbGCsgpZowG3phPLstbyCMhXZOva8BDJoHBnn2OXsSoeQQwaFmwCI7TXVp+2pkji1hmn0U5GTQni8twzWWyZeSyuYaKPhdAkvrHAVwVwyj74s3J/BpSPCxiajaPgTgUnHytkmS3XhGUyFMLxWkn55zQiFPiDs45YZLDvDGwjpZXfWQox5l1IVfnSGfJNuZDhfS+xOBVqskaUqOFsNREqyk/ZQIzUh/dlz1LQm1eeyYMQ4F9jBpFUoSSX3AwCRhQeiqAXBPlUkmy2jtCUcFozhzGKjSOGtOGwnI7Nlr+L7yQVia9qLxmatAHsss0x0oQjlCNfYnQILNzEVct70xU5BakTkdyfiR0PKZBxb+YIuOf8sFIMK0UCSZ13sFQh+NClMzxLt3rGFDGkXeIw88YjVnzlj0KDVl+fID/A3APw0Ik7envAAAAAElFTkSuQmCC">
+<style>
+  :root{
+    --bg:#07080a; --panel:#0e1116; --panel2:#141922; --line:#232a35;
+    --fg:#c9d3e0; --dim:#7b8798; --amber:#ffb347; --green:#6ee7a0; --blue:#7cb7ff; --red:#ff7a6b;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"DejaVu Sans Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;background:var(--bg);color:var(--fg);font-family:var(--mono);font-size:12px;
+    -webkit-text-size-adjust:100%;overflow:hidden;
+    display:flex;flex-direction:column;height:100dvh;
+  }
+  a{color:var(--blue)}
+  header{display:flex;align-items:center;gap:8px;padding:6px 9px;border-bottom:1px solid var(--line);
+         flex:0 0 auto;flex-wrap:wrap;background:var(--panel)}
+  header h1{font-size:12px;margin:0;font-weight:600;letter-spacing:.02em;white-space:nowrap}
+  header h1 b{color:var(--amber)}
+  header .sub{color:var(--dim);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .spacer{flex:1 1 auto}
+  .badge{border:1px solid var(--line);border-radius:3px;padding:1px 5px;font-size:10.5px;color:var(--dim);white-space:nowrap}
+  .badge.green{color:var(--green);border-color:#1d4733}
+  .badge.amber{color:var(--amber);border-color:#4a3517}
+  .badge.red{color:var(--red);border-color:#4a2317}
+  #stage{position:relative;flex:1 1 auto;min-height:0;background:#000;overflow:hidden}
+  #gl{display:block;width:100%;height:100%;touch-action:none}
+  #divider{position:absolute;top:0;bottom:0;width:30px;margin-left:-15px;cursor:ew-resize;touch-action:none;
+           display:flex;align-items:center;justify-content:center}
+  #divider::before{content:"";width:1px;height:100%;background:#39424f;box-shadow:0 0 0 .5px #000}
+  #divider:hover::before{background:var(--amber)}
+  #divider span{position:absolute;background:var(--panel);border:1px solid var(--line);border-radius:3px;
+                padding:2px 4px;font-size:9px;color:var(--dim)}
+  #hud{position:absolute;inset:0;pointer-events:none;font-size:10px;color:#5d6877}
+  #hud .lbl{position:absolute;top:6px;letter-spacing:.14em;text-transform:uppercase}
+  #hud .lbl.l{left:8px}
+  #hud .lbl.r{right:8px}
+  #hud .foot{position:absolute;bottom:6px;left:8px;right:8px;display:flex;justify-content:space-between;gap:8px}
+  #hints{position:absolute;left:8px;top:22px;color:#4a5462;line-height:1.5}
+  #controls{flex:0 0 auto;background:var(--panel);border-top:1px solid var(--line);max-height:47dvh;overflow:auto}
+  #controls.collapsed .rows{display:none}
+  .bar{display:flex;align-items:center;gap:6px;padding:5px 8px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel);z-index:2}
+  button{font-family:inherit;font-size:11px;color:var(--fg);background:var(--panel2);border:1px solid var(--line);
+         border-radius:3px;padding:4px 7px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  button:hover{border-color:#39424f;color:#fff}
+  button.on{background:#1d2a3a;border-color:#2f4b6b;color:var(--blue)}
+  button.rec.on{background:#3a1d1d;border-color:#6b2f2f;color:var(--red)}
+  .chips{display:flex;gap:5px;padding:6px 8px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+  .chip{font-size:11px;padding:3px 7px;border-radius:11px;border:1px solid var(--line);background:transparent;color:var(--dim)}
+  .chip.on{color:#07080a;background:var(--amber);border-color:var(--amber);font-weight:600}
+  .rows{padding:4px 8px 10px}
+  .row{display:grid;grid-template-columns:104px 1fr 62px;align-items:center;gap:8px;padding:3px 0;border-bottom:1px dotted #1a2029}
+  .row.off{opacity:.34;pointer-events:none}
+  .row label{color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .row .val{text-align:right;color:var(--fg);font-variant-numeric:tabular-nums}
+  input[type=range]{width:100%;height:20px;-webkit-appearance:none;background:transparent}
+  input[type=range]::-webkit-slider-runnable-track{height:2px;background:#2b3341}
+  input[type=range]::-moz-range-track{height:2px;background:#2b3341}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;margin-top:-6px;border-radius:50%;
+        background:var(--fg);border:1px solid #000}
+  input[type=range]::-moz-range-thumb{width:12px;height:12px;border-radius:50%;background:var(--fg);border:1px solid #000}
+  input[type=text]{font-family:inherit;font-size:11px;background:var(--panel2);border:1px solid var(--line);
+        color:var(--fg);border-radius:3px;padding:3px 5px;width:100%;text-transform:uppercase}
+  details{border-top:1px solid var(--line);padding:6px 9px;color:var(--dim);line-height:1.55;font-size:11px}
+  details summary{cursor:pointer;color:var(--fg);font-size:11px}
+  details p{margin:6px 0}
+  details ul{margin:4px 0 6px 16px;padding:0}
+  details code{color:var(--amber)}
+  #selftest{position:absolute;inset:0;background:rgba(4,6,9,.94);color:var(--fg);padding:12px;overflow:auto;z-index:9;line-height:1.5}
+  #selftest h2{margin:0 0 6px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
+  #selftest pre{margin:0;font-size:11px;white-space:pre-wrap}
+  .pass{color:var(--green)}.fail{color:var(--red)}.warn{color:var(--amber)}
+  #fatal{position:absolute;inset:0;background:#07080a;padding:16px;z-index:20;line-height:1.6}
+  .kbd{border:1px solid var(--line);border-radius:3px;padding:0 3px;color:var(--fg)}
+  @media (max-width:560px){
+    .row{grid-template-columns:88px 1fr 54px}
+    header h1{font-size:11px}
+    header .sub{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){ *{transition:none !important;animation:none !important} }
+</style>
+</head>
+<body>
+<header>
+  <h1>DOE <b>·</b> the picture is not in here</h1>
+  <span class="sub" id="subtitle">512&sup2; phase mask &nbsp;→&nbsp; scalar far-field replay</span>
+  <span class="spacer"></span>
+  <span class="badge" id="bPrec" title="render-target precision">float32</span>
+  <span class="badge" id="bValid" title="scalar thin-element validity">scalar ok</span>
+  <span class="badge" id="bFps">-- fps</span>
+  <span class="badge" id="bN">N=512</span>
+</header>
+
+<div id="stage">
+  <canvas id="gl"></canvas>
+  <div id="divider" title="drag to resize"><span>⇔</span></div>
+  <div id="hud">
+    <div class="lbl l">mask · SEM</div>
+    <div class="lbl r">replay field · |FFT|²</div>
+    <div id="hints">1…6 scene · drag = pan · wheel/pinch = zoom<br>space calm · r record · 0 reset · ?selftest</div>
+    <div class="foot">
+      <span id="fScale">scale —</span>
+      <span id="fExp">—</span>
+    </div>
+  </div>
+  <div id="selftest" hidden><h2>self-test</h2><pre id="stOut">running…</pre></div>
+</div>
+
+<div id="controls">
+  <div class="bar">
+    <button id="btnFold" title="collapse controls">▾ controls</button>
+    <button id="btnCalm" title="freeze all animation (also honours prefers-reduced-motion)">calm</button>
+    <button id="btnWater" title="credit watermark in recordings">watermark</button>
+    <button id="btnAspect" title="recording aspect">1:1</button>
+    <button id="btnRec" class="rec" title="record a 10 s loop">● rec 10s</button>
+    <button id="btnAudio" title="drive the optics from a local audio file (no upload)">audio…</button>
+    <input type="file" id="audioFile" accept="audio/*" hidden>
+    <button id="btnReset" title="reset view + params">reset</button>
+    <button id="btnSelf" title="run the graded self-test">selftest</button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="rows" id="rows"></div>
+</div>
+
+<details>
+<summary>physics, model &amp; simplifications (read me)</summary>
+<p><b>Model.</b> Scalar thin-element diffraction, Fraunhofer (far-field) limit. The mask is a
+<code>N×N</code> phase-only relief; the replay is its 2-D discrete Fourier transform computed with a
+Stockham radix-2 FFT in fragment shaders (log₂N passes per axis, float32 ping-pong, or float16
+“reduced precision”). A unit-modulus mask radiates <code>Σ|F|² = 1</code> (Parseval), so intensities are
+absolute, not arbitrary.</p>
+<p><b>Sampling.</b> Bin spacing in direction-sine space is <code>λ/(N·p)</code>, and the zero order sits at
+the centre of the natural-order FFT. Everything the replay panel shows is sampled from that grid,
+so <b>the replay scale is proportional to λ</b>: the same mask is transformed three times
+(640 / 532 / 450 nm) and composited additively on one screen plane. The cutoff is
+<code>sin θ ≤ λ/2p</code>, which in bin units is exactly the inscribed circle of the FFT — drawn as a
+dotted ring.</p>
+<p><b>Etch depth.</b> The etch is <i>fixed</i>, so the phase at wavelength λ is
+<code>φ_λ = φ_design·(λ_design/λ)</code>. Drag λ off-design: the three replays slide apart, the blaze loses to
+the zero order and the conjugate twin brightens.</p>
+<p><b>Zero order &amp; twin image.</b> Both are real physics and are never hidden: the zero order is the
+un-diffracted spot at the centre (the crosshair), and the point-mirrored conjugate image appears
+whenever the mask phase is symmetric in intensity (e.g. anything binary, like a 2-level hologram).
+They are left in as motifs. The FFT is a real transform: no Hermitian padding, no “remove the twin”
+tricks.</p>
+<p><b>Validity.</b> Scalar thin-element theory degrades in the resonance regime
+<code>p ≲ 2λ</code> — the badge turns amber there. Below <code>p ~ λ</code> the element is a metasurface and
+this model is decoration, not prediction.</p>
+<h3 style="font-size:11px;margin:8px 0 2px;color:var(--fg)">Simplifications, stated</h3>
+<ul>
+<li><b>No material dispersion.</b> The substrate index is a constant <code>n = 1.5</code>; the only
+λ-dependence is the <code>λ_design/λ</code> phase scaling. No Sellmeier data, no absorption, no Fresnel
+reflection losses.</li>
+<li><b>Scalar, thin, paraxial-adjacent.</b> Polarisation, vector/rigorous coupled-wave effects,
+finite etch-sidewall slope, and near-field propagation are ignored. The element is a pure phase
+screen at z=0+.</li>
+<li><b>Fraunhofer only.</b> The replay is the far field. A real DOE at finite distance shows Fresnel
+ripple; that is not modelled.</li>
+<li><b>No apodisation, no aperture obliquity factor.</b> The exit pupil is a hard-edged square
+(so the point spread function has that faint 4-fold sinc carpet, which is physical for a square
+aperture but is not a real mount).</li>
+<li><b>Quantisation is exact, and it bites.</b> Etch levels are perfect equal-height steps.
+The blaze is sampled 8 times per period, so an even level count (4, 6, 8) balances the staircase
+and cancels its zero order exactly, while 5 or 7 levels leave an uneven staircase with a real
+0.6-1.6% zero-order residue in the replay. No depth errors,
+line-edge roughness or sidewall angle.</li>
+<li><b>Gerchberg–Saxton</b> runs on a reduced grid (<code>N/2</code>, max 512) with complex-exponential
+upsampling, a quadratic-phase init (to spread the spectrum and cut speckle) and a warm start from
+the previous frame, 6–12 iterations per frame. It optimises the <i>quantised</i> phase, so the RMS
+readout is honest. The target carries a non-zero background level — with a perfectly black
+background the phase-only problem collapses to the trivial <code>field ≡ 0</code> solution.</li>
+<li><b>Exposure</b> is a log tone map normalised by an on-GPU energy reduction (RMS speckle
+amplitude). It is a display choice; the underlying intensities stay absolute.</li>
+<li><b>Animated quantities</b> (zone-lens focus, rotozoom, l drift, audio drive) move the mask, not
+the light. Under <span class="kbd">calm</span> or <span class="kbd">prefers-reduced-motion</span>
+every animation is frozen and no luminance modulation above 3 Hz is produced.</li>
+</ul>
+<p><b>Self-test.</b> Append <code>?selftest</code> to the URL (or press the button) to run five graded
+checks — FFT placement, λ-proportional replay scale, Parseval, the closed-form zero-order fraction of
+an 8-sample blaze, and URL-fragment frame determinism. Results print on screen and to the console.</p>
+</details>
+
+<!-- ============================ shaders ============================ -->
+<script id="vs.quad" type="x-shader/x-vertex">#version 300 es
+precision highp float;
+out vec2 vUV;
+void main(){
+  vec2 p = vec2(float((gl_VertexID << 1) & 2), float(gl_VertexID & 2));
+  vUV = p;
+  gl_Position = vec4(p * 2.0 - 1.0, 0.0, 1.0);
+}
+</script>
+
+<!-- ========= equals fs.tap: design phase + per-channel phasors, one texel per mask pixel ========= -->
+<script id="fs.tap" type="x-fragment">#version 300 es
+precision highp float;
+precision highp int;
+uniform int   uN;
+uniform float uP;          // pixel pitch, m
+uniform float uLamD;       // design wavelength, m
+uniform float uScale;      // lamDesign / lamIllum  (fixed etch depth, no dispersion)
+uniform int   uLevels;     // phase levels
+uniform float uW[6];       // grating, zfl, axicon, vortex, dammann, holo
+uniform float uGratingPx;
+uniform float uZflF;
+uniform float uAxicon;
+uniform float uCharge;
+uniform float uRotCell;    // Dammann cell rotation, rad
+uniform float uCellPx;
+uniform float uDT[9];
+uniform int   uDTn;
+uniform sampler2D uHolo;   // GS mask field, RG = (re, im)
+uniform int   uHoloM;
+out vec4 oTap;
+
+const float TAU = 6.283185307179586;
+
+/* 1-D binary cell profile: toggle at every transition in the table */
+float cellProfile(float t){
+  float v = 0.0;
+  for (int i = 0; i < 9; i++){
+    if (i >= uDTn) break;
+    v = (t >= uDT[i]) ? 1.0 - v : v;
+  }
+  return v;
+}
+
+/* GS phase by complex-exponential (phase preserving) interpolation */
+float gsPhase(vec2 uv){
+  vec2 x = uv * float(uHoloM) - 0.5;
+  vec2 x0 = floor(x);
+  vec2 f = x - x0;
+  vec2 acc = vec2(0.0);
+  for (int b = 0; b < 4; b++){
+    ivec2 c = ivec2(clamp(vec2(x0.x + float(b & 1), x0.y + float(b >> 1)),
+                          vec2(0.0), vec2(float(uHoloM - 1))));
+    float w = ((b & 1) == 0 ? 1.0 - f.x : f.x) * ((b >> 1) == 0 ? 1.0 - f.y : f.y);
+    acc += w * texelFetch(uHolo, c, 0).rg;
+  }
+  return atan(acc.y, acc.x);
+}
+
+void main(){
+  float N = float(uN);
+  vec2 g = gl_FragCoord.xy - 0.5;
+  float x = (g.x - N * 0.5 + 0.5) * uP;
+  float y = (g.y - N * 0.5 + 0.5) * uP;
+  float r = length(vec2(x, y));
+  float phi = 0.0;
+
+  /* the blaze is laid out on the pixel grid (as a real DOE layout is), so the
+     sampled staircase has a uniform level histogram and its zero order cancels
+     exactly - sampling the continuous ramp off-grid would leave a half-pixel
+     registration error and spoil the calibration null. */
+  {
+    float ix = floor(gl_FragCoord.x);
+    if (uW[0] > 0.0) phi += uW[0] * TAU * fract((ix - N * 0.5) / uGratingPx);
+  }
+  if (uW[1] > 0.0) phi += uW[1] * (-3.141592653589793 * (x * x + y * y) / (uLamD * uZflF));
+  if (uW[2] > 0.0) phi += uW[2] * (-TAU * uAxicon * r / uLamD);
+  if (uW[3] > 0.0) phi += uW[3] * uCharge * atan(y, x);
+  if (uW[4] > 0.0){
+    float c = cos(uRotCell), s = sin(uRotCell);
+    float cell = uCellPx * uP;
+    float vx = cellProfile(fract(( x * c + y * s) / cell));
+    float vy = cellProfile(fract((-x * s + y * c) / cell));
+    phi += uW[4] * 3.141592653589793 * (vx != vy ? 1.0 : 0.0);
+  }
+  if (uW[5] > 0.0) phi += uW[5] * gsPhase(g / N);
+
+  /* quantise the design phase: the etch is a staircase of equal steps.
+     uLevels < 2 means "continuous" (no etch steps, the ideal kinoform).
+     A fixed etch depth means the optical phase at lambda is phi_design*lambda_d/lambda. */
+  float lvl = 0.0;
+  float q   = phi;                      // design phase (what the SEM shows)
+  if (uLevels >= 2){
+    float st = TAU / float(uLevels);
+    lvl = floor(phi / st + 0.5);
+    q   = lvl * st;
+  }
+  oTap = vec4(cos(q * uScale), sin(q * uScale), lvl, 1.0);
+}
+</script>
+
+<!-- ========= Stockham radix-2 FFT: one 1-D pass over every row or column ========= -->
+<script id="fs.fft" type="x-fragment">#version 300 es
+precision highp float;
+precision highp int;
+uniform sampler2D uSrc;
+uniform int   uN;
+uniform int   uBits;
+uniform int   uStage;
+uniform int   uAxis;   // 0 = along x (rows), 1 = along y (columns)
+uniform int   uPerm;   // 1 on the final pass of an axis: bit-reverse the logical index
+uniform float uSign;   // -1 forward, +1 inverse
+uniform float uNorm;   // 1/N on the final pass of a forward axis, else 1
+out vec4 oFFT;
+
+uint bitrev(uint x, int bits){
+  uint r = 0u;
+  for (int i = 0; i < 10; i++){
+    if (i >= bits) break;
+    r = (r << 1) | (x & 1u);
+    x >>= 1;
+  }
+  return r;
+}
+
+void main(){
+  int N    = uN;
+  int half = N >> 1;
+  int phys = (uAxis == 0) ? int(gl_FragCoord.x) : int(gl_FragCoord.y);
+  int oth  = (uAxis == 0) ? int(gl_FragCoord.y) : int(gl_FragCoord.x);
+  int l    = (uPerm == 1) ? int(bitrev(uint(phys), uBits)) : phys;
+  int i    = l >> 1;
+  int k    = l >> (uStage + 1);
+  float M  = float(N >> uStage);
+
+  vec2 a = texelFetch(uSrc, (uAxis == 0) ? ivec2(i, oth)        : ivec2(oth, i), 0).rg;
+  vec2 b = texelFetch(uSrc, (uAxis == 0) ? ivec2(i + half, oth) : ivec2(oth, i + half), 0).rg;
+
+  vec2 outv;
+  if ((l & 1) == 0){
+    outv = a + b;
+  } else {
+    float ang = uSign * 6.283185307179586 * float(k) / M;
+    float c = cos(ang), s = sin(ang);
+    vec2 d = a - b;
+    outv = vec2(d.x * c - d.y * s, d.x * s + d.y * c);
+  }
+  oFFT = vec4(outv * uNorm, 0.0, 1.0);
+}
+</script>
+
+<!-- ========= |F|^2 ========= -->
+<script id="fs.intensity" type="x-fragment">#version 300 es
+precision highp float;
+uniform sampler2D uSrc;
+out vec4 oI;
+void main(){
+  vec2 c = texelFetch(uSrc, ivec2(gl_FragCoord.xy), 0).rg;
+  oI = vec4(dot(c, c), 0.0, 0.0, 1.0);
+}
+</script>
+
+<!-- ========= 2x2 reduction: sum and/or max of selected channels ========= -->
+<script id="fs.reduce" type="x-fragment">#version 300 es
+precision highp float;
+uniform sampler2D uSrc;
+uniform vec3 uSel;     // channel selection for the sum
+uniform float uMax;    // 1 = take the max of .r instead
+out vec4 oR;
+void main(){
+  ivec2 p = ivec2(gl_FragCoord.xy) * 2;
+  vec4 s = texelFetch(uSrc, p, 0) + texelFetch(uSrc, p + ivec2(1,0), 0)
+         + texelFetch(uSrc, p + ivec2(0,1), 0) + texelFetch(uSrc, p + ivec2(1,1), 0);
+  vec3 v = s.xyz * uSel;
+  float acc = v.x + v.y + v.z;
+  if (uMax > 0.5) acc = max(max(s.x, s.y), max(s.z, s.w));
+  oR = vec4(acc, 0.0, 0.0, 1.0);
+}
+</script>
+
+<!-- ========= Gerchberg-Saxton mask-plane constraint ========= -->
+<script id="fs.gsmask" type="x-fragment">#version 300 es
+precision highp float;
+precision highp int;
+uniform sampler2D uSrc;
+uniform int uQuant;      // 0 = continuous, else number of levels
+out vec4 oG;
+/* exp(i*arg(f)) is the only thing a height-relief element can present.
+   Quantising here means GS converges on the element actually fabricated. */
+void main(){
+  vec2 c = texelFetch(uSrc, ivec2(gl_FragCoord.xy), 0).rg;
+  float m = length(c);
+  if (m < 1e-24){ oG = vec4(1.0, 0.0, 0.0, 1.0); return; }
+  float ph = atan(c.y, c.x);
+  if (uQuant >= 2){
+    float st = 6.283185307179586 / float(uQuant);
+    ph = floor(ph / st + 0.5) * st;
+  }
+  oG = vec4(cos(ph), sin(ph), 0.0, 1.0);
+}
+</script>
+
+<!-- ========= Gerchberg-Saxton replay-plane constraint (+ error accumulator) ========= -->
+<script id="fs.gsreplay" type="x-fragment">#version 300 es
+precision highp float;
+uniform sampler2D uSrc;
+uniform sampler2D uTarget;
+out vec4 oG;
+/* keep the phase, force the amplitude to the target.  .b carries the squared
+   amplitude error so a reduction chain can read the RMS out cheaply. */
+void main(){
+  ivec2 p = ivec2(gl_FragCoord.xy);
+  vec2 c = texelFetch(uSrc, p, 0).rg;
+  float a = texelFetch(uTarget, p, 0).r;
+  float m = length(c);
+  vec2 u = (m > 1e-24) ? c / m : vec2(1.0, 0.0);
+  float d = m - a;
+  oG = vec4(u * a, d * d, 1.0);
+}
+</script>
+
+<!-- ========= mask panel: fake e-beam micrograph of the etched relief ========= -->
+<script id="fs.sem" type="x-fragment">#version 300 es
+precision highp float;
+precision highp int;
+uniform sampler2D uTap;   // RGBA: rg = design phasors, b = design level index
+uniform sampler2D uBar;   // scale-bar label atlas (R8)
+uniform vec2  uBarSize;   // label size in texels
+uniform vec4  uRect;      // panel rect in drawing-buffer pixels (x, y, w, h)
+uniform vec2  uPan;       // pan, mask units from the centre
+uniform float uZoom;      // 1 = whole mask ... 48 = single pixels
+uniform int   uN;
+uniform float uP;
+uniform float uLamD;
+uniform float uNmat;      // n - 1 of the (dispersionless) material
+uniform float uFlat;      // as-built roughness amount
+uniform float uBarLenM;   // scale bar length, m
+uniform float uSeed;
+out vec4 oCol;
+
+uint ihash(uint x){
+  x = (x ^ 61u) ^ (x >> 16); x = x + (x << 3); x = x ^ (x >> 4);
+  x = x * 0x27d4eb2du; x = x ^ (x >> 15); return x;
+}
+float rnd(vec2 p, float s){
+  return float(ihash(uint(int(p.x) * 1973 + int(p.y) * 9277 + int(s * 26699.0)))) / 4294967296.0;
+}
+/* wrapped phase difference between two unit phasors */
+float dphi(vec4 a, vec4 b){ return atan(a.x * b.y - a.y * b.x, a.x * b.x + a.y * b.y); }
+vec4 tap(int x, int y){ return texelFetch(uTap, ivec2(clamp(x, 0, uN - 1), clamp(y, 0, uN - 1)), 0); }
+float glyph(vec2 p, vec2 org){
+  float sc = max(1.0, floor(uBarSize.y / 7.0));
+  vec2 uv = (p - org) / sc;
+  if (uv.x < 0.0 || uv.y < 0.0 || uv.x > uBarSize.x || uv.y > uBarSize.y) return 0.0;
+  return texelFetch(uBar, ivec2(clamp(uv, vec2(0.0), uBarSize - 1.0)), 0).r;
+}
+
+void main(){
+  vec2 p = gl_FragCoord.xy;
+  vec2 rect = uRect.zw;
+  vec2 fc = (p - uRect.xy) / rect;
+  if (fc.x < 0.0 || fc.x > 1.0 || fc.y < 0.0 || fc.y > 1.0){ oCol = vec4(0.0,0.0,0.0,1.0); return; }
+  vec2 uv = 0.5 + uPan + (fc - 0.5) / uZoom;
+  vec2 m = uv * float(uN);
+  ivec2 ip = ivec2(floor(m));
+
+  /* finite difference step: never finer than one screen pixel of the panel */
+  float mpp = float(uN) / (uZoom * rect.x);         // mask pixels per panel pixel
+  int h = int(clamp(floor(mpp), 1.0, 8.0));
+
+  vec4 t0 = tap(ip.x, ip.y);
+  float dxr = 0.5 * (dphi(t0, tap(ip.x + h, ip.y)) - dphi(tap(ip.x - h, ip.y), t0)) / (float(h) * uP);
+  float dyr = 0.5 * (dphi(t0, tap(ip.x, ip.y + h)) - dphi(tap(ip.x, ip.y - h), t0)) / (float(h) * uP);
+
+  /* lateral phase gradient -> dimensionless physical surface slope */
+  float hUnit = uLamD / max(uNmat, 1e-3);           // metres per full 2*pi step
+  float hx = dxr * hUnit / 6.283185307179586;
+  float hy = dyr * hUnit / 6.283185307179586;
+
+  /* as-built roughness: sub-pixel surface noise, worst where we zoom in */
+  float rough = uFlat * (1.0 - 0.5 * min(1.0, uZoom / 10.0));
+  hx += (rnd(m, uSeed) - 0.5) * rough;
+  hy += (rnd(m * 0.37 + 11.0, uSeed + 3.0) - 0.5) * rough;
+
+  /* fake e-beam shading: tilted collector + secondary-electron edge bloom */
+  vec3 nrm = normalize(vec3(-hx, -hy, 1.0));
+  float lam = max(0.0, dot(nrm, normalize(vec3(-0.42, -0.55, 0.72))));
+  float edge = min(1.0, length(vec2(hx, hy)) * 0.55);
+  float s = 0.16 + 0.60 * lam + 0.42 * pow(edge, 1.3);
+  s += (rnd(m * 3.1, uSeed + 7.0) - 0.5) * 0.05;                   // detector grain
+  s *= 0.94 + 0.06 * cos(fc.y * 640.0);                            // scan texture
+  s *= 1.0 - 0.30 * pow(length(fc - 0.5) * 1.4, 3.0);              // vignette
+  float lum = clamp(pow(clamp(s, 0.0, 1.0), 1.0 / 1.6), 0.0, 1.0);
+
+  /* ---- decoration: scale bar (1/2/5 x 10^k of the span) + label ---- */
+  vec2 span = (vec2(1.0) / uZoom) * float(uN) * uP;
+  float barLen = clamp(uBarLenM / span.x, 0.04, 0.55) * rect.x;
+  vec2 b0 = uRect.xy + vec2(rect.x * 0.07, rect.w * 0.90);
+  vec2 q = p - b0;
+  float bar = (q.y > -1.2 && q.y < 1.2 && q.x > -1.0 && q.x < barLen + 1.0) ? 1.0 : 0.0;
+  float tick = ((abs(q.x) < 2.0 || abs(q.x - barLen) < 2.0) && q.y > -6.0 && q.y < 1.2) ? 1.0 : 0.0;
+  lum = mix(lum, 1.0, max(bar, tick));
+  lum = mix(lum, 1.0, glyph(p - uRect.xy, vec2(rect.x * 0.07, rect.w * 0.90 - uBarSize.y - 3.0)));
+
+  oCol = vec4(vec3(lum) * vec3(1.0, 1.0, 1.04), 1.0);              // very slightly cool
+}
+</script>
+
+<!-- ========= replay panel: three channels, cutoffs, zero-order marker ========= -->
+<script id="fs.replay" type="x-fragment">#version 300 es
+precision highp float;
+precision highp int;
+uniform sampler2D uIR, uIG, uIB;   // intensities, natural-order FFT: DC at texel 0,0
+uniform vec4  uRect;
+uniform int   uN;
+uniform float uP;
+uniform float uLamR, uLamG, uLamB;
+uniform float uS;                  // sin(theta) half-extent of the window
+uniform vec3  uColR, uColG, uColB; // lambda -> linear sRGB
+uniform float uMark;               // annotate zero order + cutoff rings
+uniform float uExp;                // exposure (EV), multiplies the tone map
+uniform vec2  uPan;
+uniform float uZoom;
+uniform float uT;
+out vec4 oCol;
+
+float sampleI(sampler2D tex, vec2 bin){
+  // natural-order FFT: bin b lives at array index b mod N
+  vec2 w = mod(bin, float(uN));
+  vec2 xf = w - 0.5;
+  vec2 x0 = floor(xf);
+  vec2 f = xf - x0;
+  vec2 u0 = mod(x0, float(uN));
+  vec2 u1 = mod(x0 + 1.0, float(uN));
+  float a = texelFetch(tex, ivec2(u0.x, u0.y), 0).r;
+  float b = texelFetch(tex, ivec2(u1.x, u0.y), 0).r;
+  float c = texelFetch(tex, ivec2(u0.x, u1.y), 0).r;
+  float d = texelFetch(tex, ivec2(u1.x, u1.y), 0).r;
+  return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
+}
+
+/* THE physics-to-pixels mapping, in one line:
+     FFT bin  =  sin(theta) * N * p / lambda
+   Bin spacing is lambda/(N p), so the replay scale is proportional to lambda.
+   The cutoff sin(theta) <= lambda/(2p) is the inscribed circle of the FFT grid. */
+float chan(sampler2D tex, float lam, vec2 s){
+  vec2 bin = s * (float(uN) * uP / lam);
+  if (dot(bin, bin) > float(uN * uN) * 0.25) return 0.0;
+  return sampleI(tex, bin);
+}
+
+void main(){
+  vec2 p = gl_FragCoord.xy;
+  vec2 rect = uRect.zw;
+  vec2 fc = (p - uRect.xy) / rect;
+  if (fc.x < 0.0 || fc.x > 1.0 || fc.y < 0.0 || fc.y > 1.0){ oCol = vec4(0.0,0.0,0.0,1.0); return; }
+
+  /* the window is square in direction-sine space, cover-fitted to the panel */
+  float sc = max(rect.x, rect.y) * 0.5 / uS * uZoom;
+  vec2 s = (p - (uRect.xy + rect * 0.5)) / sc + uPan;
+
+  float g = exp2(uExp);
+  vec3 col = chan(uIR, uLamR, s) * g * uColR
+           + chan(uIG, uLamG, s) * g * uColG
+           + chan(uIB, uLamB, s) * g * uColB;
+
+  /* log-ish rolloff: peak and speckle can differ by 5 decades, both must read.
+     Gain is 1/N^2 because a unit-modulus mask always radiates sum(I) == 1
+     (Parseval), i.e. the mean level is exactly 1/N^2 for every channel. */
+  float meanI = 1.0 / (float(uN) * float(uN));
+  col = col / meanI;
+  col = log2(1.0 + col * 0.65) / 7.0;
+
+  if (uMark > 0.5){
+    vec2 ctr = (uRect.xy + rect * 0.5) - uPan * sc;
+    float dr = length(p - ctr);
+    float dash = step(0.5, fract(atan(p.y - ctr.y, p.x - ctr.x) / 6.283185307179586 * 40.0));
+    float ringR = (1.0 - smoothstep(0.0, 1.3, abs(dr - uLamR * 0.5 / uP * sc))) * dash;
+    float ringG = (1.0 - smoothstep(0.0, 1.3, abs(dr - uLamG * 0.5 / uP * sc))) * dash;
+    float ringB = (1.0 - smoothstep(0.0, 1.3, abs(dr - uLamB * 0.5 / uP * sc))) * dash;
+    col += 0.055 * (ringR * uColR + ringG * uColG + ringB * uColB);
+    vec2 d = abs(p - ctr);
+    col += (((d.x < 6.0 && d.y < 0.55) || (d.y < 6.0 && d.x < 0.55)) ? 0.05 : 0.0)
+           * (0.7 + 0.3 * sin(uT * 1.9));
+    col += (1.0 - smoothstep(7.0, 11.0, dr)) * 0.03 * (0.7 + 0.3 * sin(uT * 1.9));
+  }
+  col *= 1.0 - 0.26 * pow(length(fc - 0.5) * 1.4, 3.0);
+  oCol = vec4(pow(max(col, 0.0), vec3(1.0 / 2.2)), 1.0);
+}
+</script>
+
+<!-- ========= overlay: divider, recording border, watermark ========= -->
+<script id="fs.over" type="x-fragment">#version 300 es
+precision highp float;
+precision highp int;
+uniform vec2  uRes;
+uniform float uSplit;
+uniform sampler2D uWm;
+uniform vec2  uWmSize;
+uniform float uWmOn;
+uniform float uBorder;
+out vec4 oCol;
+
+void main(){
+  vec2 p = gl_FragCoord.xy;
+  vec3 c = vec3(0.22, 0.26, 0.32);
+  float a = 0.85 * (1.0 - smoothstep(0.0, 1.1, abs(p.x - uSplit)));
+  if (uBorder > 0.5){
+    float e = min(min(p.x, p.y), min(uRes.x - 1.0 - p.x, uRes.y - 1.0 - p.y));
+    float b = 1.0 - smoothstep(0.0, 2.0, e);
+    if (b > 0.0){ a = max(a, b * 0.55); c = mix(c, vec3(0.55,0.42,0.22), b); }
+  }
+  if (uWmOn > 0.5){
+    float sc = max(1.0, floor(uRes.y / 260.0));
+    vec2 org = uRes - vec2(uWmSize.x * sc + 12.0, uWmSize.y * sc + 12.0);
+    vec2 uv = (p - org) / sc;
+    if (uv.x >= 0.0 && uv.y >= 0.0 && uv.x <= uWmSize.x && uv.y <= uWmSize.y){
+      float g = texelFetch(uWm, ivec2(clamp(uv, vec2(0.0), uWmSize - 1.0)), 0).r;
+      if (g > 0.5){ a = max(a, 0.8); c = vec3(0.92, 0.94, 0.97); }
+    }
+  }
+  oCol = vec4(c, a);
+}
+</script>
+
+<script>
+"use strict";
+/* =====================================================================
+   DOE - "the picture is not in here"
+   A single-file WebGL2 diffractive-optics piece.  No network requests,
+   no libraries, no stored images.  What is stored is a phase function;
+   a picture only appears where the simulated light lands.
+
+   Sections: 1 utils  2 parameters + URL fragment  3 font  4 GL pipeline
+             5 CPU reference model  6 UI  7 self-test  8 main loop
+   ===================================================================== */
+
+/* ------------------------------------------------------------ 1. utils */
+const $ = (id) => document.getElementById(id);
+const TAU = 6.283185307179586;
+const clamp = (x, a, b) => x < a ? a : (x > b ? b : x);
+const frac = (x) => x - Math.floor(x);
+const fmtSI = (m) => Math.abs(m) >= 1e-6 ? (m * 1e6).toFixed(Math.abs(m) < 1e-5 ? 1 : 0) + " µm"
+  : Math.abs(m) >= 1e-9 ? (m * 1e9).toFixed(0) + " nm" : (m * 1e12).toFixed(0) + " pm";
+/* integer hash - the same maths runs in GLSL ES 3.0 uint in fs.sem */
+function ihash(x) {
+  x = (x ^ 61) ^ (x >>> 16);
+  x = (x + (x << 3)) >>> 0;
+  x = x ^ (x >>> 4);
+  x = Math.imul(x, 0x27d4eb2d) >>> 0;
+  x = x ^ (x >>> 15);
+  return x >>> 0;
+}
+function mulberry32(a) {
+  return function () {
+    a |= 0; a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+/* --------------------------------------- 2. parameters + URL fragment */
+const P = {
+  N: 512, holoDiv: 2, p: 600e-9, lamIllum: 532e-9, lamDesign: 532e-9,
+  levels: 8, scene: 5, mix: 0.35, gratingPx: 8, zflF: 2e-3, zflSweep: 1,
+  axiconNA: 0.18, charge: 3, spots: 5, cellPx: 16, text: "DOE",
+  holoWin: 0.5, holoOffX: 0, holoOffY: 0, holoEff: 0.8,
+  zoom: 1, panX: 0, panY: 0, rzoom: 1, split: 0.5, ev: 0, flat: 0.35,
+  seed: 1, calm: 0, tour: 1, wm: 1, aspect: 0,
+};
+const CH = [640, 532, 450];
+const SCENES = ["blaze", "zone lens", "axicon", "vortex", "Dammann", "hologram"];
+const NMAT = 1.5;                       // substrate index (no dispersion, see info panel)
+const CHARS = " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,!?-+:/*'()=";
+const LVL_CHOICES = [4, 5, 6, 7, 8, 0];   // 4-8 quantisation levels per the brief, 0 = continuous
+
+const B64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
+function b64enc(bytes) {
+  let s = "";
+  for (let i = 0; i < bytes.length; i += 3) {
+    const a = bytes[i], b = bytes[i + 1], c = bytes[i + 2];
+    s += B64[(a >> 2) & 63];
+    s += B64[((a & 3) << 4) | ((b || 0) >> 4)];
+    if (b === undefined) break;
+    s += B64[((b & 15) << 2) | ((c || 0) >> 6)];
+    if (c === undefined) break;
+    s += B64[c & 63];
+  }
+  return s;
+}
+function b64dec(str) {
+  const out = [];
+  let acc = 0, bits = 0;
+  for (const ch of str) {
+    const v = B64.indexOf(ch);
+    if (v < 0) continue;
+    acc = (acc << 6) | v; bits += 6;
+    if (bits >= 8) { bits -= 8; out.push((acc >> bits) & 255); }
+  }
+  return new Uint8Array(out);
+}
+/* The shareable state lives in the URL fragment: a 30-byte record plus the
+   hologram text, base64url, comfortably inside 200 characters.  Loading the
+   same fragment reproduces the same frame (the GS start is seeded from P.seed). */
+function packState() {
+  const b = new Uint8Array(30);
+  const dv = new DataView(b.buffer);
+  dv.setUint8(0, 1);
+  dv.setUint8(1, (P.scene & 15) | ((P.text.length & 15) << 4));
+  dv.setUint8(2, Math.max(0, LVL_CHOICES.indexOf(P.levels)) & 15);
+  dv.setUint8(3, (Math.round(P.charge) + 8) * 8 & 255);
+  dv.setUint8(4, Math.round(P.spots * 20) & 255);
+  dv.setUint8(5, clamp(Math.round(P.gratingPx), 1, 255));
+  dv.setUint8(6, clamp(Math.round(P.cellPx), 1, 255));
+  dv.setUint8(7, clamp(Math.round(P.holoWin * 100), 5, 250));
+  dv.setInt16(8, Math.round(P.p / 10e-9) - 30);
+  dv.setUint16(10, Math.round(P.lamIllum * 1e9));
+  dv.setUint16(12, Math.round(P.lamDesign * 1e9));
+  dv.setInt16(14, Math.round(P.zflF / 1e-5));
+  dv.setUint8(16, clamp(Math.round(P.axiconNA * 100), 1, 99));
+  dv.setUint8(17, clamp(Math.round(P.ev * 8 + 8), 0, 15));
+  dv.setUint8(18, (P.calm ? 1 : 0) | (P.tour ? 2 : 0) | (P.wm ? 4 : 0) | (P.aspect ? 8 : 0) | (P.zflSweep ? 16 : 0));
+  dv.setUint8(19, clamp(Math.round(P.flat * 100), 0, 100));
+  dv.setUint16(20, P.seed & 65535);
+  dv.setInt16(22, Math.round(Math.log2(P.zoom) * 1000));
+  dv.setInt16(24, Math.round(P.rzoom * 1000));
+  dv.setUint8(26, Math.round(P.split * 255));
+  dv.setUint8(27, Math.round(P.mix * 255));
+  dv.setInt16(28, P.N);
+  const s = new Uint8Array(31 + P.text.length);
+  s.set(b, 0); s[30] = 0x2E;                    // '.' separator, cheap and readable
+  for (let i = 0; i < P.text.length; i++) s[31 + i] = Math.max(0, CHARS.indexOf(P.text[i]));
+  return b64enc(s);
+}
+function unpackState(str) {
+  try {
+    const u = b64dec(str);
+    if (u.length < 31 || u[0] !== 1) return false;
+    const dv = new DataView(u.buffer, u.byteOffset, u.byteLength);
+    P.scene = u[1] & 15; if (P.scene > 5) P.scene = 0;
+    P.levels = LVL_CHOICES[u[2] & 15]; if (P.levels === undefined) P.levels = 8;
+    P.charge = (u[3] >> 3) - 8;
+    P.spots = u[4] / 20;
+    P.gratingPx = u[5]; P.cellPx = u[6]; P.holoWin = u[7] / 100;
+    P.p = (dv.getInt16(8) + 30) * 10e-9;
+    P.lamIllum = dv.getUint16(10) * 1e-9; P.lamDesign = dv.getUint16(12) * 1e-9;
+    P.zflF = dv.getInt16(14) * 1e-5;
+    P.axiconNA = u[16] / 100;
+    P.ev = (u[17] - 8) / 8;
+    P.calm = u[18] & 1; P.tour = (u[18] >> 1) & 1; P.wm = (u[18] >> 2) & 1;
+    P.aspect = (u[18] >> 3) & 1; P.zflSweep = (u[18] >> 4) & 1;
+    P.flat = u[19] / 100; P.seed = dv.getUint16(20);
+    P.zoom = Math.pow(2, dv.getInt16(22) / 1000);
+    P.rzoom = dv.getInt16(24) / 1000;
+    P.split = u[26] / 255; P.mix = u[27] / 255;
+    let t = "";
+    const n = (u[1] >> 4) & 15;
+    for (let i = 0; i < n; i++) t += CHARS[u[31 + i] || 0];
+    P.text = t;
+    return true;
+  } catch (e) { return false; }
+}
+
+/* ------------------------------------------------- 3. bundled 5x7 font */
+const FONT_B64 =
+  "AAAAAAB+CQkJfn9JSUk2PkFBQSJ/QUFBPn9JSUlBfwkJCQE+QUlJOn8ICAh/QUF/QUEgQEE/AX8IFCJBf0BAQEB/AgwCf38CBAh/PkFBQT5/CQkJ" +
+  "Bj5BUSFefwkZKUZGSUlJMQEBfwEBP0BAQD8fIEAgH38gGCB/YxQIFGMDBHgEA2FRSUVDPlFJRT4AQn9AAEJhUUlGIUFFSzEYFBJ/ECdFRUU5" +
+  "PEpJSTABcQkFAzZJSUk2BklJKR4AYGAAAABwMAAAAABfAAACAVEJBggICAgICAg+CAgANjYAAEAwCAYBKhw+HCoAAAMAAAAcIkEAAEEiHAAU" +
+  "FBQUFA==";
+let FONT = null;
+function fontBytes() {
+  if (!FONT) {
+    const bin = atob(FONT_B64);
+    FONT = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) FONT[i] = bin.charCodeAt(i);
+  }
+  return FONT;
+}
+const glyphIndex = (ch) => { const i = CHARS.indexOf(ch); return i < 0 ? 0 : i; };
+/* rasterise text into an R8 atlas with the bundled font (no canvas text:
+   bit-identical on every machine, which the URL-determinism test relies on) */
+function renderText(str, scale) {
+  const n = Math.max(1, str.length);
+  const w = Math.max(1, 6 * n - 1) * scale, h = 7 * scale;
+  const d = new Uint8Array(w * h);
+  const f = fontBytes();
+  for (let c = 0; c < str.length; c++) {
+    const gi = glyphIndex(str[c]);
+    for (let gx = 0; gx < 5; gx++) {
+      const col = f[gi * 5 + gx];
+      for (let gy = 0; gy < 7; gy++) {
+        if (!(col & (1 << gy))) continue;
+        for (let dy = 0; dy < scale; dy++)
+          for (let dx = 0; dx < scale; dx++) {
+            const x = (c * 6 + gx) * scale + dx, y = gy * scale + dy;
+            if (x < w && y < h) d[y * w + x] = 255;
+          }
+      }
+    }
+  }
+  return { w, h, data: d };
+}
+/* GS target: image pixels at holoEff of the total replay energy, everything
+   else at a uniform background level.  A perfectly black background would make
+   field == 0 an exact solution of both constraints, and GS collapses to zero. */
+function gsTarget(text, M, win, offX, offY, eff) {
+  const A = new Float32Array(M * M);
+  const lit = new Uint8Array(M * M);
+  if (!text.length) {
+    for (let y = 0; y < M; y++)
+      for (let x = 0; x < M; x++) {
+        const u = (2 * (x + 0.5)) / M - 1, v = (2 * (y + 0.5)) / M - 1;
+        const r = Math.hypot(u, v);
+        const on = ((r > 0.355 && r < 0.435) || (r < 0.07 && ((x ^ y) & 6) === 0)) ? 1 : 0;
+        A[y * M + x] = on; lit[y * M + x] = on;
+      }
+  } else {
+    const f = fontBytes();
+    const n = text.length, gw = 6 * n - 1;
+    const sc = Math.max(1, Math.floor((win * M) / gw));
+    const ox = Math.round((M - gw * sc) / 2 + offX * M);
+    const oy = Math.round((M - 7 * sc) / 2 + offY * M);
+    for (let c = 0; c < n; c++) {
+      const gi = glyphIndex(text[c]);
+      for (let gx = 0; gx < 5; gx++) {
+        const col = f[gi * 5 + gx];
+        for (let gy = 0; gy < 7; gy++) {
+          if (!(col & (1 << gy))) continue;
+          for (let dy = 0; dy < sc; dy++)
+            for (let dx = 0; dx < sc; dx++) {
+              const x = ox + (c * 6 + gx) * sc + dx, y = oy + gy * sc + dy;
+              if (x >= 0 && x < M && y >= 0 && y < M) { A[y * M + x] = 1; lit[y * M + x] = 1; }
+            }
+        }
+      }
+    }
+  }
+  let nl = 0;
+  for (let i = 0; i < M * M; i++) if (lit[i]) nl++;
+  const aI = Math.sqrt(eff / Math.max(1, nl));
+  const aB = Math.sqrt((1 - eff) / Math.max(1, M * M - nl));
+  for (let i = 0; i < M * M; i++) A[i] = lit[i] ? aI : aB;
+  return { amp: A, lit, nl };
+}
+
+/* ------------------------------------------------------------ 4. WebGL */
+const DAMMANN = [
+  { spots: 3, T: [0.3675, 0.6325] },
+  { spots: 5, T: [0.0192, 0.3676, 0.6324, 0.9808] },
+  { spots: 7, T: [0.1228, 0.3447, 0.3953, 0.6047, 0.6553, 0.8772] },
+  { spots: 9, T: [0.0998, 0.1592, 0.3690, 0.4917, 0.5083, 0.6310, 0.8408, 0.9002] },
+];
+function dammannTable(spots) {
+  const s = clamp(spots, 3, 9);
+  let k = 0;
+  while (k < DAMMANN.length - 1 && s > DAMMANN[k + 1].spots) k++;
+  if (k === DAMMANN.length - 1) return DAMMANN[k].T.slice();
+  const a = DAMMANN[k], b = DAMMANN[k + 1];
+  const t = (s - a.spots) / (b.spots - a.spots);
+  const n = Math.max(a.T.length, b.T.length), out = [];
+  for (let i = 0; i < n; i++) {
+    const va = a.T[Math.min(i, a.T.length - 1)], vb = b.T[Math.min(i, b.T.length - 1)];
+    out.push(va + (vb - va) * t);
+  }
+  return out;
+}
+
+const canvas = $("gl");
+let gl = null, PREC = "float32", RECOMPILED = 0;
+const STAGE = { w: 2, h: 2 };
+function initGL() {
+  gl = canvas.getContext("webgl2", {
+    antialias: false, alpha: false, depth: false, stencil: false,
+    preserveDrawingBuffer: false, powerPreference: "high-performance", desynchronized: false,
+  });
+  if (!gl) return "WebGL2 is not available in this browser.";
+  const cbf = gl.getExtension("EXT_color_buffer_float");
+  if (!cbf) {
+    const cbh = gl.getExtension("EXT_color_buffer_half_float");
+    PREC = cbh ? "float16" : "none";
+  }
+  if (PREC === "none") return "This browser cannot render to float textures (no EXT_color_buffer_float / half_float), so the FFT cannot run.";
+  gl.disable(gl.DEPTH_TEST); gl.disable(gl.BLEND); gl.disable(gl.CULL_FACE);
+  return null;
+}
+function texFmt(kind) {
+  const f32 = PREC === "float32";
+  if (kind === "rgba") return f32 ? [gl.RGBA32F, gl.RGBA, gl.FLOAT] : [gl.RGBA16F, gl.RGBA, gl.HALF_FLOAT];
+  if (kind === "rg") return f32 ? [gl.RG32F, gl.RG, gl.FLOAT] : [gl.RG16F, gl.RG, gl.HALF_FLOAT];
+  return [gl.R8, gl.RED, gl.UNSIGNED_BYTE];   // labels / atlases: always 8 bit
+}
+function makeTex(w, h, kind, data) {
+  const t = gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_2D, t);
+  const f = texFmt(kind);
+  gl.texImage2D(gl.TEXTURE_2D, 0, f[0], w, h, 0, f[1], f[2], data || null);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  return { tex: t, w, h, kind };
+}
+function makeRT(t) {
+  const f = gl.createFramebuffer();
+  gl.bindFramebuffer(gl.FRAMEBUFFER, f);
+  gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, t.tex, 0);
+  const ok = gl.checkFramebufferStatus(gl.FRAMEBUFFER) === gl.FRAMEBUFFER_COMPLETE;
+  return { fbo: f, tex: t.tex, w: t.w, h: t.h, kind: t.kind, ok };
+}
+function makeRTex(w, h, kind, data) { return makeRT(makeTex(w, h, kind, data)); }
+function compile(type, src, name) {
+  const s = gl.createShader(type);
+  gl.shaderSource(s, src); gl.compileShader(s);
+  if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+    const log = gl.getShaderInfoLog(s);
+    console.error("[" + name + "] compile failed: " + log);
+    window.__shaderError = name + ": " + log;
+    return null;
+  }
+  return s;
+}
+function makeProg(vsSrc, fsId) {
+  const vs = compile(gl.VERTEX_SHADER, vsSrc, "vs");
+  const fs = compile(gl.FRAGMENT_SHADER, $(fsId).textContent, fsId);
+  if (!vs || !fs) return null;
+  const p = gl.createProgram();
+  gl.attachShader(p, vs); gl.attachShader(p, fs); gl.linkProgram(p);
+  if (!gl.getProgramParameter(p, gl.LINK_STATUS)) {
+    const log = gl.getProgramInfoLog(p);
+    console.error("[" + fsId + "] link failed: " + log);
+    window.__shaderError = fsId + ": " + log;
+    return null;
+  }
+  const u = {};
+  const n = gl.getProgramParameter(p, gl.ACTIVE_UNIFORMS);
+  for (let i = 0; i < n; i++) {
+    const nm = gl.getActiveUniform(p, i).name.replace(/\[0\]$/, "");
+    u[nm] = gl.getUniformLocation(p, nm);
+  }
+  return { p, u, name: fsId };
+}
+let PR = {}, RT = {}, fontTex = null, wmTexInfo = { w: 1, h: 1 }, barTexInfo = { w: 1, h: 1, label: "" };
+function holoM() { return clamp(Math.round(P.N / P.holoDiv), 64, 512); }
+
+function buildRT() {
+  const N = P.N, M = holoM();
+  const old = RT;
+  RT = {
+    design: makeRTex(N, N, "rgba"),
+    tap: [makeRTex(N, N, "rg"), makeRTex(N, N, "rg"), makeRTex(N, N, "rg")],
+    pingA: [makeRTex(N, N, "rg"), makeRTex(N, N, "rg"), makeRTex(N, N, "rg")],
+    pingB: [makeRTex(N, N, "rg"), makeRTex(N, N, "rg"), makeRTex(N, N, "rg")],
+    I: [makeRTex(N, N, "rgba"), makeRTex(N, N, "rgba"), makeRTex(N, N, "rgba")],
+    holo: [makeRTex(M, M, "rg"), makeRTex(M, M, "rg"), makeRTex(M, M, "rg")],
+    holoT: makeRTex(M, M, "rgba"),
+    err: [],
+  };
+  for (let s = M >> 1; s >= 1; s >>= 1) RT.err.push(makeRTex(s, s, "rgba"));
+  for (const k in old) {
+    const arr = Array.isArray(old[k]) ? old[k] : [old[k]];
+    for (const r of arr) { gl.deleteFramebuffer(r.fbo); gl.deleteTexture(r.tex); }
+  }
+  if (fontTex) { gl.deleteTexture(fontTex.tex); fontTex = null; }
+  fontTex = makeTex(5 * CHARS.length, 7, "r", fontBytes());
+}
+function bindRT(rt) {
+  if (rt) { gl.bindFramebuffer(gl.FRAMEBUFFER, rt.fbo); gl.viewport(0, 0, rt.w, rt.h); }
+  else { gl.bindFramebuffer(gl.FRAMEBUFFER, null); gl.viewport(0, 0, canvas.width, canvas.height); }
+}
+function setTex(pr, name, unit, rt) {
+  const loc = pr.u[name];
+  gl.activeTexture(gl.TEXTURE0 + unit);
+  gl.bindTexture(gl.TEXTURE_2D, rt ? (rt.tex || rt) : null);
+  if (loc) gl.uniform1i(loc, unit);
+}
+const u1f = (pr, n, v) => { const l = pr.u[n]; if (l) gl.uniform1f(l, v); };
+const u1i = (pr, n, v) => { const l = pr.u[n]; if (l) gl.uniform1i(l, v); };
+const u2f = (pr, n, a, b) => { const l = pr.u[n]; if (l) gl.uniform2f(l, a, b); };
+const u3f = (pr, n, a, b, c) => { const l = pr.u[n]; if (l) gl.uniform3f(l, a, b, c); };
+const u4f = (pr, n, a, b, c, d) => { const l = pr.u[n]; if (l) gl.uniform4f(l, a, b, c, d); };
+const quad = () => gl.drawArrays(gl.TRIANGLES, 0, 3);
+
+/* ---- FFT driver: mirrors C.fft1Pass / C.fft2d exactly ---- */
+function fftPass(src, dst, N, stage, axis, perm, sign, norm) {
+  const pr = PR.fft;
+  gl.useProgram(pr.p);
+  setTex(pr, "uSrc", 0, src);
+  u1i(pr, "uN", N); u1i(pr, "uBits", Math.round(Math.log2(N)));
+  u1i(pr, "uStage", stage); u1i(pr, "uAxis", axis); u1i(pr, "uPerm", perm ? 1 : 0);
+  u1f(pr, "uSign", sign); u1f(pr, "uNorm", norm);
+  bindRT(dst); quad();
+}
+function fft2d(a, b, N, inverse) {
+  const bits = Math.round(Math.log2(N));
+  let cur = a, nxt = b;
+  for (let axis = 0; axis < 2; axis++)
+    for (let s = 0; s < bits; s++) {
+      const norm = (!inverse && s === bits - 1) ? 1 / N : 1;
+      fftPass(cur, nxt, N, s, axis, s === bits - 1, inverse ? 1 : -1, norm);
+      const t = cur; cur = nxt; nxt = t;
+    }
+  return cur;
+}
+
+/* ---- scene / tap ---- */
+let Wv = [0, 0, 0, 0, 0, 1], wCur = [0, 0, 0, 0, 0, 1], wTarget = [0, 0, 0, 0, 0, 1];
+const ANIM = { zflF: 2e-3, charge: 3, spots: 5, rot: 0 };
+function tapPass(kind, chan, dst) {
+  const pr = PR.tap;
+  gl.useProgram(pr.p);
+  u1i(pr, "uN", P.N); u1f(pr, "uP", P.p); u1f(pr, "uLamD", P.lamDesign);
+  u1i(pr, "uLevels", P.levels > 1 ? P.levels : 0);   // 0 = continuous
+  const wl = pr.u["uW"]; if (wl) gl.uniform1fv(wl, Wv);
+  u1f(pr, "uGratingPx", P.gratingPx);
+  u1f(pr, "uZflF", ANIM.zflF);
+  u1f(pr, "uAxicon", P.axiconNA);
+  u1f(pr, "uCharge", ANIM.charge);
+  u1f(pr, "uRotCell", ANIM.rot);
+  u1f(pr, "uCellPx", P.cellPx);
+  const T = dammannTable(ANIM.spots);
+  const tl = pr.u["uDT"];
+  if (tl) gl.uniform1fv(tl, T.concat(new Array(9).fill(0)).slice(0, 9));
+  u1i(pr, "uDTn", T.length);
+  setTex(pr, "uHolo", 1, RT.holo[0]);
+  u1i(pr, "uHoloM", holoM());
+  /* fixed etch depth: the optical phase is phi_design * lamDesign / lambda.
+     chan < 0 -> the design tap for the SEM (scale 1, design phase levels). */
+  u1f(pr, "uScale", chan < 0 ? 1 : P.lamDesign / chanLam(chan));
+  bindRT(dst); quad();
+}
+/* illumination wavelengths: centre channel is the slider, the others keep the
+   design ratios (640/532/450) around it */
+function chanLam(c) { return P.lamIllum * (CH[c] / 532); }
+
+/* ---- Gerchberg-Saxton ---- */
+let gsRMS = 0, gsDenom = 1, gsIters = 0, gsReadback = 0, gsFrames = 0;
+let holoDirty = true;
+function gsMask(src, dst) {
+  const pr = PR.gsmask;
+  gl.useProgram(pr.p);
+  setTex(pr, "uSrc", 0, src);
+  u1i(pr, "uQuant", P.levels > 1 ? P.levels : 0);    // 0 = continuous
+  bindRT(dst); quad();
+}
+function gsReplay(src, dst) {
+  const pr = PR.gsreplay;
+  gl.useProgram(pr.p);
+  setTex(pr, "uSrc", 0, src);
+  setTex(pr, "uTarget", 1, RT.holoT);
+  bindRT(dst); quad();
+}
+function gsIterate(iters) {
+  const M = holoM();
+  const g0 = RT.holo[0], g1 = RT.holo[1], g2 = RT.holo[2];
+  for (let it = 0; it < iters; it++) {
+    gsMask(g0, g1);
+    const F = fft2d(g1, g2, M, false);
+    const oth = (F === g1) ? g2 : g1;
+    gsReplay(F, oth);
+    gsIters++;
+    /* measure BEFORE the inverse transform: the FFT ping-pongs through the
+       buffers it is given, so `oth` no longer holds the constrained replay
+       once fft2d has run over it. */
+    if (it === iters - 1 && (gsReadback++ & 3) === 0) {
+      let cur = oth;
+      for (let k = 0; k < RT.err.length; k++) {
+        const pr = PR.reduce;
+        gl.useProgram(pr.p);
+        setTex(pr, "uSrc", 0, cur);
+        /* level 0 reads the squared error fs.gsreplay left in .b; every later
+           level reads the accumulator the previous level wrote to .r */
+        u3f(pr, "uSel", k === 0 ? 0 : 1, 0, k === 0 ? 1 : 0);
+        u1f(pr, "uMax", 0);
+        bindRT(RT.err[k]); quad();
+        cur = RT.err[k];
+      }
+      const buf = new Float32Array(4);
+      gl.bindFramebuffer(gl.FRAMEBUFFER, RT.err[RT.err.length - 1].fbo);
+      gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.FLOAT, buf);
+      gsRMS = Math.sqrt(Math.max(0, buf[0]) / (gsDenom || 1));   // fs.reduce writes the sum to .r
+      gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+    }
+    const back = fft2d(oth, F, M, true);
+    gsMask(back, g0);
+  }
+}
+function holoChanged() { holoDirty = true; }
+function refreshTarget() {
+  const M = holoM();
+  const t = gsTarget(P.text.slice(0, 24).toUpperCase(), M, P.holoWin, P.holoOffX, P.holoOffY, P.holoEff);
+  const f = new Float32Array(M * M * 4);
+  for (let i = 0; i < M * M; i++) { f[4 * i] = t.amp[i]; f[4 * i + 3] = 1; }
+  const fmt = texFmt("rgba");
+  gl.bindTexture(gl.TEXTURE_2D, RT.holoT.tex);
+  gl.texImage2D(gl.TEXTURE_2D, 0, fmt[0], M, M, 0, gl.RGBA, fmt[2], f);
+  let d = 0;
+  for (let i = 0; i < M * M; i++) if (t.lit[i]) d += t.amp[i] * t.amp[i];
+  gsDenom = d;
+  /* seeded start: quadratic phase (spreads the spectrum, cuts speckle) + noise */
+  const rnd = mulberry32(P.seed >>> 0);
+  const init = new Float32Array(M * M * 2);
+  for (let j = 0; j < M; j++)
+    for (let i = 0; i < M; i++) {
+      const x = (i - M / 2 + 0.5) / M, y = (j - M / 2 + 0.5) / M;
+      const ph = -22 * (x * x + y * y) + TAU * rnd();
+      init[2 * (j * M + i)] = Math.cos(ph);
+      init[2 * (j * M + i) + 1] = Math.sin(ph);
+    }
+  gl.bindTexture(gl.TEXTURE_2D, RT.holo[0].tex);
+  const gf = texFmt("rg");
+  gl.texImage2D(gl.TEXTURE_2D, 0, gf[0], M, M, 0, gl.RG, gf[2], init);
+  gsIters = 0; gsFrames = 0;
+}
+/* 6..12 iterations per frame, scaled by the design-grid cost */
+function gsIterPerFrame() { return clamp(Math.round(1536 / holoM()), 6, 12); }
+
+/* ---- frame ---- */
+let frameDt = 1 / 60, tAnim = 0, fpsAvg = 60, slowFrames = 0, fastFrames = 0, N_stage = 0;
+function updateAnim(t) {
+  ANIM.zflF = P.zflF * (P.zflSweep && !P.calm ? Math.pow(6, Math.sin(t * TAU / 10)) : 1);
+  ANIM.charge = P.charge;
+  ANIM.spots = P.spots;
+  if (!P.calm && audio.level > 0) {
+    ANIM.charge = clamp(P.charge + (audio.bass - 0.35) * 6, -8, 8);
+    ANIM.spots = clamp(P.spots + (audio.treb - 0.35) * 5, 3, 9);
+  }
+  ANIM.rot = P.calm ? 0 : t * TAU / 10 * 0.35;
+}
+function renderScene(t) {
+  updateAnim(t);
+  /* cross-fade the phase fields (weights), never the finished images */
+  const k = clamp(frameDt * 2.4, 0, 1);
+  for (let i = 0; i < 6; i++) wCur[i] += (wTarget[i] - wCur[i]) * k;
+  Wv = wCur.slice();
+
+  if (wCur[5] > 0.002 && !P.calm && gsFrames < 300) { gsIterate(gsIterPerFrame()); gsFrames++; }
+
+  tapPass("design", -1, RT.design);
+  for (let c = 0; c < 3; c++) {
+    tapPass("chan", c, RT.tap[c]);
+    const F = fft2d(RT.tap[c], RT.pingA[c], P.N, false);
+    const pr = PR.intensity;
+    gl.useProgram(pr.p);
+    setTex(pr, "uSrc", 0, F);
+    bindRT(RT.I[c]); quad();
+  }
+}
+function drawPanels(t) {
+  const W = canvas.width, H = canvas.height;
+  const sx = Math.round(W * P.split);
+  gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+  gl.viewport(0, 0, W, H);
+  gl.clearColor(0.02, 0.025, 0.035, 1);
+  gl.clear(gl.COLOR_BUFFER_BIT);
+
+  /* mask / SEM panel */
+  let pr = PR.sem;
+  gl.useProgram(pr.p);
+  setTex(pr, "uTap", 0, RT.design);
+  setTex(pr, "uBar", 1, barTexInfo.tex);
+  u2f(pr, "uBarSize", barTexInfo.w, barTexInfo.h);
+  u4f(pr, "uRect", 0, 0, sx, H);
+  u2f(pr, "uPan", P.panX, P.panY);
+  u1f(pr, "uZoom", P.zoom);
+  u1i(pr, "uN", P.N);
+  u1f(pr, "uP", P.p);
+  u1f(pr, "uLamD", P.lamDesign);
+  u1f(pr, "uNmat", NMAT - 1);
+  u1f(pr, "uFlat", P.flat);
+  u1f(pr, "uBarLenM", barLenM());
+  u1f(pr, "uSeed", P.seed);
+  quad();
+
+  /* replay panel */
+  pr = PR.replay;
+  gl.useProgram(pr.p);
+  setTex(pr, "uIR", 0, RT.I[0]);
+  setTex(pr, "uIG", 1, RT.I[1]);
+  setTex(pr, "uIB", 2, RT.I[2]);
+  u4f(pr, "uRect", sx + 1, 0, W - sx - 1, H);
+  u1i(pr, "uN", P.N);
+  u1f(pr, "uP", P.p);
+  u1f(pr, "uLamR", chanLam(0)); u1f(pr, "uLamG", chanLam(1)); u1f(pr, "uLamB", chanLam(2));
+  u1f(pr, "uS", 0.45);
+  const cr = C.spectrum(chanLam(0) * 1e9), cg = C.spectrum(chanLam(1) * 1e9), cb = C.spectrum(chanLam(2) * 1e9);
+  u3f(pr, "uColR", cr[0], cr[1], cr[2]);
+  u3f(pr, "uColG", cg[0], cg[1], cg[2]);
+  u3f(pr, "uColB", cb[0], cb[1], cb[2]);
+  u1f(pr, "uMark", 1);
+  u1f(pr, "uExp", P.ev);
+  u2f(pr, "uPan", P.panX, P.panY);
+  u1f(pr, "uZoom", P.rzoom);
+  u1f(pr, "uT", t);
+  quad();
+
+  /* overlay: divider, recording border, watermark */
+  pr = PR.over;
+  gl.useProgram(pr.p);
+  gl.enable(gl.BLEND);
+  gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+  u2f(pr, "uRes", W, H);
+  u1f(pr, "uSplit", sx);
+  setTex(pr, "uWm", 0, wmTexInfo.tex);
+  u2f(pr, "uWmSize", wmTexInfo.w, wmTexInfo.h);
+  u1f(pr, "uWmOn", (P.wm && rec.on && P.aspect) ? 1 : 0);
+  u1f(pr, "uBorder", rec.on ? 1 : 0);
+  bindRT(null); quad();
+  gl.disable(gl.BLEND);
+}
+let barLenCache = 0;
+function barLenM() {
+  /* a 1/2/5 x 10^k length that is about 1/4 of the visible span */
+  const span = (1 / P.zoom) * P.N * P.p;
+  const target = span * 0.25;
+  const e = Math.pow(10, Math.floor(Math.log10(target)));
+  const m = target / e;
+  const nice = m >= 5 ? 5 : m >= 2 ? 2 : 1;
+  barLenCache = nice * e;
+  return barLenCache;
+}
+function barLabel() { return fmtSI(barLenCache); }
+</script>
+
+<script>
+"use strict";
+/* =====================================================================
+   DOE - part 2: CPU reference model, UI, self-test, main loop.
+   ===================================================================== */
+
+/* ------------------------------------------ 5. CPU reference model */
+/* The arithmetic the shaders perform, kept runnable in JS so the graded
+   self-test can check the physics without trusting the GPU. */
+const C = {
+  /* fixed etch depth: phi_lambda = phi_design * (lamDesign / lambda) */
+  phaseScale: (lam) => P.lamDesign / lam,
+  /* one 1-D Stockham radix-2 pass; mirrors fs.fft exactly */
+  fft1Pass(src, dst, N, s, axis, sign, norm, perm) {
+    const half = N >> 1, bits = Math.round(Math.log2(N)), M = N >> s;
+    const brev = (x) => { let r = 0; for (let i = 0; i < bits; i++) { r = (r << 1) | (x & 1); x >>= 1; } return r; };
+    for (let o = 0; o < N; o++)
+      for (let p = 0; p < N; p++) {
+        const l = perm ? brev(p) : p;
+        const i = l >> 1, k = l >> (s + 1);
+        const a0 = axis === 0 ? (o * N + i) * 2 : (i * N + o) * 2;
+        const a1 = axis === 0 ? (o * N + i + half) * 2 : ((i + half) * N + o) * 2;
+        const d0 = axis === 0 ? (o * N + p) * 2 : (p * N + o) * 2;
+        const ar = src[a0], ai = src[a0 + 1], br = src[a1], bi = src[a1 + 1];
+        let r0, r1;
+        if ((l & 1) === 0) { r0 = ar + br; r1 = ai + bi; }
+        else {
+          const ang = (sign * TAU * k) / M, c = Math.cos(ang), sn = Math.sin(ang);
+          const dr = ar - br, di = ai - bi;
+          r0 = dr * c - di * sn; r1 = dr * sn + di * c;
+        }
+        dst[d0] = r0 * norm; dst[d0 + 1] = r1 * norm;
+      }
+  },
+  fft2d(src, N, inverse) {
+    const bits = Math.round(Math.log2(N));
+    let a = Float64Array.from(src), b = new Float64Array(2 * N * N);
+    for (let axis = 0; axis < 2; axis++)
+      for (let s = 0; s < bits; s++) {
+        const norm = (!inverse && s === bits - 1) ? 1 / N : 1;
+        C.fft1Pass(a, b, N, s, axis, inverse ? 1 : -1, norm, s === bits - 1);
+        const t = a; a = b; b = t;
+      }
+    return a;
+  },
+  /* replay intensity of a phase screen, natural order (DC at index 0) */
+  replay(phi, N, lam) {
+    const r = C.phaseScale(lam);
+    const f = new Float64Array(2 * N * N);
+    for (let i = 0; i < N * N; i++) { f[2 * i] = Math.cos(phi[i] * r); f[2 * i + 1] = Math.sin(phi[i] * r); }
+    const F = C.fft2d(f, N, false);
+    const I = new Float64Array(N * N);
+    for (let i = 0; i < N * N; i++) I[i] = F[2 * i] * F[2 * i] + F[2 * i + 1] * F[2 * i + 1];
+    return I;
+  },
+  /* direction sine <-> FFT bin: bin = sin(theta) * N * p / lambda */
+  binOfSin: (s, N, p, lam) => (s * N * p) / lam,
+  sinOfBin: (b, N, p, lam) => (b * lam) / (N * p),
+  cutoff: (lam, p) => lam / (2 * p),
+  /* closed-form zero-order fraction of an 8-sample blazed ramp, phase ratio r */
+  blazeZero: (r) => { const s = Math.sin(Math.PI * r) / (8 * Math.sin((Math.PI * r) / 8)); return s * s; },
+  /* wavelength -> linear sRGB (Wyman/Sloan/Shirley multi-lobe fit) */
+  spectrum(lamNm) {
+    const g = (x, mu, s1, s2) => { const t = (x - mu) * (x < mu ? 1 / s1 : 1 / s2); return Math.exp(-0.5 * t * t); };
+    const X = 1.056 * g(lamNm, 599.8, 37.9, 31.0) + 0.362 * g(lamNm, 442.0, 16.0, 26.7) - 0.065 * g(lamNm, 501.1, 20.4, 26.2);
+    const Y = 0.821 * g(lamNm, 568.8, 46.9, 40.5) + 0.286 * g(lamNm, 530.9, 16.3, 31.1);
+    const Z = 1.217 * g(lamNm, 437.0, 11.8, 36.0) + 0.681 * g(lamNm, 459.0, 26.0, 13.8);
+    let r = Math.max(0, 3.2406 * X - 1.5372 * Y - 0.4986 * Z);
+    let gg = Math.max(0, -0.9689 * X + 1.8758 * Y + 0.0415 * Z);
+    let b = Math.max(0, 0.0557 * X - 0.2040 * Y + 1.0570 * Z);
+    const m = Math.max(r, gg, b) || 1;
+    return [r / m, gg / m, b / m];
+  },
+};
+/* CPU phase mask for a single blaze (used by the tests) */
+function blazeMask(N, periodPx, r) {
+  const phi = new Float64Array(N * N);
+  for (let j = 0; j < N; j++)
+    for (let i = 0; i < N; i++) phi[j * N + i] = TAU * frac(i / periodPx) * (r === undefined ? 1 : r);
+  return phi;
+}
+function frameHash() {
+  /* hash of the green replay channel: deterministic given identical inputs */
+  const N = P.N;
+  let sum = 2166136261 >>> 0;
+  try {
+    const buf = new Float32Array(N * N * 4);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, RT.I[1].fbo);
+    gl.readPixels(0, 0, N, N, gl.RGBA, gl.FLOAT, buf);
+    const u = new Uint32Array(buf.buffer);
+    for (let i = 0; i < N * N; i += 7) {
+      sum ^= u[i * 4];
+      sum = Math.imul(sum, 16777619) >>> 0;
+    }
+    gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+    return sum >>> 0;
+  } catch (e) { return null; }
+}
+
+/* -------------------------------------------------------------- 6. UI */
+const UI = {};
+function buildUI() {
+  /* scene chips */
+  const el = $("chips");
+  SCENES.forEach((s, i) => {
+    const b = document.createElement("button");
+    b.className = "chip" + (i === P.scene ? " on" : "");
+    b.textContent = (i + 1) + " " + s;
+    b.onclick = () => setScene(i);
+    el.appendChild(b);
+    UI["chip" + i] = b;
+  });
+  const tb = document.createElement("button");
+  tb.className = "chip" + (P.tour ? " on" : "");
+  tb.textContent = "tour";
+  tb.onclick = () => { P.tour = P.tour ? 0 : 1; tb.className = "chip" + (P.tour ? " on" : ""); syncURL(); };
+  el.appendChild(tb);
+
+  /* sliders */
+  const mk = (label, get, set, fmt, lo, hi, log) => {
+    const row = document.createElement("div"); row.className = "row";
+    const l = document.createElement("label"); l.textContent = label;
+    const r = document.createElement("input");
+    r.type = "range"; r.min = "0"; r.max = "1000"; r.step = "1";
+    const v = document.createElement("div"); v.className = "val";
+    const enc = (x) => log
+      ? (Math.log10(clamp(x, lo, hi)) - Math.log10(lo)) / (Math.log10(hi) - Math.log10(lo))
+      : (clamp(x, lo, hi) - lo) / (hi - lo);
+    const dec = (u) => log
+      ? Math.pow(10, Math.log10(lo) + u * (Math.log10(hi) - Math.log10(lo)))
+      : lo + u * (hi - lo);
+    r.value = String(Math.round(1000 * enc(get())));
+    v.textContent = fmt(get());
+    r.oninput = () => { set(dec(r.value / 1000)); v.textContent = fmt(get()); syncURL(); };
+    row.append(l, r, v);
+    $("rows").appendChild(row);
+    const o = { r, v, sync: () => { r.value = String(Math.round(1000 * enc(get()))); v.textContent = fmt(get()); } };
+    UI[label] = o;
+    return o;
+  };
+  UI.pitch = mk("pitch p", () => P.p, (x) => { P.p = x; }, (x) => fmtSI(x), 300e-9, 2e-6, true);
+  UI.lam = mk("λ illum", () => P.lamIllum, (x) => { P.lamIllum = x; }, (x) => (x * 1e9).toFixed(0) + " nm", 400e-9, 700e-9, false);
+  UI.lamd = mk("λ design", () => P.lamDesign, (x) => { P.lamDesign = x; }, (x) => (x * 1e9).toFixed(0) + " nm", 400e-9, 700e-9, false);
+  UI.lvl = mk("levels", () => LVL_CHOICES.indexOf(P.levels), (x) => { P.levels = LVL_CHOICES[Math.round(x)]; }, (x) => LVL_CHOICES[Math.round(x)] || "continuous", 0, 5, false);
+  UI.mix = mk("mix prev", () => P.mix, (x) => { P.mix = x; setScene(P.scene); }, (x) => (x * 100).toFixed(0) + "%", 0, 1, false);
+  UI.gr = mk("blaze period", () => P.gratingPx, (x) => { P.gratingPx = Math.max(2, Math.round(x)); }, (x) => Math.round(x) + " px", 2, 64, false);
+  UI.zf = mk("zone lens f", () => P.zflF, (x) => { P.zflF = x; }, (x) => (x * 1e3).toFixed(2) + " mm", 3e-4, 2e-2, true);
+  UI.ax = mk("axicon NA", () => P.axiconNA, (x) => { P.axiconNA = x; }, (x) => x.toFixed(3), 0.02, 0.45, false);
+  UI.ch = mk("vortex ℓ", () => P.charge, (x) => { P.charge = Math.round(x); }, (x) => String(Math.round(x)), -8, 8, false);
+  UI.sp = mk("spot count", () => P.spots, (x) => { P.spots = x; }, (x) => x.toFixed(1), 3, 9, false);
+  UI.cell = mk("cell size", () => P.cellPx, (x) => { P.cellPx = Math.max(4, Math.round(x)); }, (x) => Math.round(x) + " px", 4, 64, false);
+  UI.hw = mk("text width", () => P.holoWin, (x) => { P.holoWin = x; holoDirty = true; }, (x) => (x * 100).toFixed(0) + "%", 0.15, 0.95, false);
+  UI.he = mk("image energy", () => P.holoEff, (x) => { P.holoEff = x; holoDirty = true; }, (x) => (x * 100).toFixed(0) + "%", 0.3, 0.95, false);
+  UI.zoom = mk("mask zoom", () => Math.log2(P.zoom), (x) => { P.zoom = Math.pow(2, x); }, (x) => Math.pow(2, x).toFixed(2) + "×", 0, 6, false);
+  UI.rz = mk("replay zoom", () => Math.log2(P.rzoom), (x) => { P.rzoom = Math.pow(2, x); }, (x) => Math.pow(2, x).toFixed(2) + "×", -1, 2, false);
+  UI.sp2 = mk("split", () => P.split, (x) => { P.split = x; }, (x) => (x * 100).toFixed(0) + "%", 0.08, 0.92, false);
+  UI.ev = mk("exposure", () => P.ev, (x) => { P.ev = x; }, (x) => x.toFixed(2) + " EV", -3, 3, false);
+  UI.fl = mk("as-built", () => P.flat, (x) => { P.flat = x; }, (x) => (x * 100).toFixed(0) + "%", 0, 1, false);
+
+  const tr = document.createElement("div");
+  tr.className = "row";
+  const tl = document.createElement("label"); tl.textContent = "text ≤24";
+  const ti = document.createElement("input");
+  ti.type = "text"; ti.maxLength = 24; ti.value = P.text;
+  const tv = document.createElement("div"); tv.className = "val"; tv.textContent = P.text.length + " ch";
+  ti.oninput = () => {
+    P.text = ti.value.toUpperCase().replace(new RegExp("[^A-Z0-9.,!?\\-+:/*'()= ]", "g"), "");
+    tv.textContent = P.text.length + " ch";
+    holoDirty = true; refreshTarget(); syncURL();
+  };
+  tr.append(tl, ti, tv);
+  $("rows").appendChild(tr);
+  UI.text = { sync: () => { ti.value = P.text; tv.textContent = P.text.length + " ch"; } };
+
+  /* buttons */
+  $("btnFold").onclick = () => {
+    const c = $("controls");
+    c.classList.toggle("collapsed");
+    $("btnFold").textContent = c.classList.contains("collapsed") ? "▴ controls" : "▾ controls";
+  };
+  $("btnCalm").onclick = () => { P.calm = P.calm ? 0 : 1; syncButtons(); syncURL(); };
+  $("btnWater").onclick = () => { P.wm = P.wm ? 0 : 1; syncButtons(); syncURL(); };
+  $("btnAspect").onclick = () => { P.aspect = P.aspect ? 0 : 1; syncButtons(); syncURL(); };
+  $("btnRec").onclick = toggleRec;
+  $("btnSelf").onclick = () => runSelfTest(true);
+  $("btnAudio").onclick = () => $("audioFile").click();
+  $("audioFile").onchange = (e) => { if (e.target.files[0]) initAudioFile(e.target.files[0]); };
+  $("btnReset").onclick = () => {
+    P.zoom = 1; P.panX = 0; P.panY = 0; P.rzoom = 1; P.split = 0.5; P.ev = 0;
+    syncAll(); syncURL();
+  };
+  syncButtons();
+}
+function syncButtons() {
+  $("btnCalm").classList.toggle("on", !!P.calm);
+  $("btnWater").classList.toggle("on", !!P.wm);
+  $("btnAspect").classList.toggle("on", !!P.aspect);
+  $("btnAspect").textContent = P.aspect ? "9:16" : "1:1";
+  $("bPrec").textContent = PREC === "float32" ? "float32" : "float16 · reduced precision";
+  $("bPrec").className = "badge" + (PREC === "float32" ? "" : " amber");
+}
+function syncAll() {
+  for (const k in UI) if (UI[k].sync) UI[k].sync();
+  syncButtons();
+  setScene(P.scene);
+}
+function setScene(i) {
+  const prev = P.scene;
+  P.scene = i;
+  /* the blaze is sampled 8 times per period. An even level count (4, 6 or 8)
+     keeps the staircase balanced, so its zero order cancels exactly and the
+     calibration scene really shows one spot; the odd settings 5 and 7 leave
+     an uneven staircase with a small zero-order residue - real quantisation
+     physics, visible in the replay. */
+  if (i === 0 && P.levels !== 8) { P.levels = 8; if (UI.lvl) UI.lvl.sync(); }
+  const w = [0, 0, 0, 0, 0, 0];
+  w[i] = 1;
+  if (i !== prev && P.mix > 0.001) w[prev] = P.mix;
+  wTarget = w;
+  for (let k = 0; k < SCENES.length; k++) if (UI["chip" + k]) UI["chip" + k].className = "chip" + (k === i ? " on" : "");
+  syncURL();
+}
+let urlTimer = 0;
+function syncURL() {
+  clearTimeout(urlTimer);
+  urlTimer = setTimeout(() => {
+    const frag = packState();
+    try { history.replaceState(null, "", "#" + frag); } catch (e) { }
+    $("fExp").textContent = "fragment " + frag.length + "/200 chars · seed " + P.seed + " · " + SCENES[P.scene];
+  }, 200);
+}
+
+/* ---- audio (local file only, never uploaded) ---- */
+const audio = { ctx: null, level: 0, bass: 0, treb: 0, el: null, data: null, base: 0 };
+function initAudioFile(file) {
+  try {
+    if (!audio.ctx) audio.ctx = new (window.AudioContext || window.webkitAudioContext)();
+    if (audio.el) { audio.el.pause(); URL.revokeObjectURL(audio.url); }
+    audio.base = { charge: P.charge, spots: P.spots };
+    audio.url = URL.createObjectURL(file);
+    const el = new Audio(audio.url);
+    el.loop = true;
+    audio.el = el;
+    const src = audio.ctx.createMediaElementSource(el);
+    const an = audio.ctx.createAnalyser();
+    an.fftSize = 1024; an.smoothingTimeConstant = 0.75;
+    src.connect(an); an.connect(audio.ctx.destination);
+    audio.analyser = an;
+    audio.data = new Uint8Array(an.frequencyBinCount);
+    el.play();
+    $("btnAudio").classList.add("on");
+    $("btnAudio").textContent = "audio on";
+  } catch (e) {
+    $("btnAudio").textContent = "audio failed";
+    console.warn(e);
+  }
+}
+function audioUpdate() {
+  if (!audio.analyser) { audio.level = 0; return; }
+  audio.analyser.getByteFrequencyData(audio.data);
+  const n = audio.data.length;
+  let bass = 0, treb = 0, all = 0;
+  for (let i = 1; i < 8; i++) bass += audio.data[i];
+  for (let i = 40; i < 200; i++) treb += audio.data[i];
+  for (let i = 0; i < n; i++) all += audio.data[i];
+  audio.bass = bass / (7 * 255);
+  audio.treb = treb / (160 * 255);
+  audio.level = all / (n * 255);
+}
+
+/* ---- recording: 10 s loop, 1:1 or 9:16, optional watermark ---- */
+const rec = { on: false, mr: null, chunks: [], size: [720, 720] };
+let recDims = 0;
+function toggleRec() {
+  if (rec.on) { try { rec.mr.stop(); } catch (e) { } return; }
+  if (!canvas.captureStream || !window.MediaRecorder) { alert("MediaRecorder / captureStream are not available in this browser."); return; }
+  const mimes = ["video/webm;codecs=vp9", "video/webm;codecs=vp8", "video/webm", "video/mp4"];
+  let mime = "";
+  for (const m of mimes) if (MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported(m)) { mime = m; break; }
+  rec.size = P.aspect ? [608, 1080] : [720, 720];
+  recDims = 1;
+  showRecordingCanvas(true);
+  rec.stream = canvas.captureStream(60);
+  rec.mr = new MediaRecorder(rec.stream, mime ? { mimeType: mime, videoBitsPerSecond: 14e6 } : undefined);
+  rec.chunks = [];
+  rec.mr.ondataavailable = (e) => { if (e.data && e.data.size) rec.chunks.push(e.data); };
+  rec.mr.onstop = () => {
+    const blob = new Blob(rec.chunks, { type: mime || "video/webm" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "doe-" + (P.aspect ? "9x16-" : "1x1-") + Date.now() + (mime.indexOf("mp4") >= 0 ? ".mp4" : ".webm");
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 8000);
+    rec.on = false; recDims = 0;
+    $("btnRec").classList.remove("on");
+    $("btnRec").textContent = "● rec 10s";
+    showRecordingCanvas(false);
+  };
+  rec.on = true;
+  rec.mr.start();
+  $("btnRec").classList.add("on");
+  $("btnRec").textContent = "● recording…";
+  rec.timer = setTimeout(() => { if (rec.on) { try { rec.mr.stop(); } catch (e) { } } }, 10000);
+}
+function showRecordingCanvas(on) {
+  if (on) {
+    canvas.width = rec.size[0]; canvas.height = rec.size[1];
+    const r = canvas.parentElement.getBoundingClientRect();
+    const s = Math.min(r.width / canvas.width, r.height / canvas.height);
+    canvas.style.width = (canvas.width * s) + "px";
+    canvas.style.height = (canvas.height * s) + "px";
+    canvas.style.margin = "auto";
+  } else {
+    canvas.style.width = "100%"; canvas.style.height = "100%"; canvas.style.margin = "0";
+    fitCanvas();
+  }
+}
+function fitCanvas() {
+  if (rec.on) return;
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const r = canvas.getBoundingClientRect();
+  const w = Math.max(4, Math.round(r.width * dpr)), h = Math.max(4, Math.round(r.height * dpr));
+  if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
+}
+
+/* ---- pointer / touch ---- */
+let drag = null;
+function canvasPos(e) {
+  const r = canvas.getBoundingClientRect();
+  return { x: (e.clientX - r.left) / r.width * canvas.width, y: (e.clientY - r.top) / r.height * canvas.height };
+}
+function panelOf(x) { return x < canvas.width * P.split ? "L" : "R"; }
+canvas.addEventListener("pointerdown", (e) => {
+  canvas.setPointerCapture(e.pointerId);
+  const p = canvasPos(e);
+  const sx = canvas.width * P.split;
+  drag = { id: e.pointerId, sx: e.clientX, sy: e.clientY, x: p.x, y: p.y, mode: Math.abs(p.x - sx) < 22 * (canvas.width / canvas.clientWidth) ? "split" : panelOf(p.x) };
+  if (drag.mode === "L") drag.pan = [P.panX, P.panY, P.zoom];
+  if (drag.mode === "R") drag.pan = [P.panX, P.panY, P.rzoom];
+}, { passive: true });
+canvas.addEventListener("pointermove", (e) => {
+  if (!drag || e.pointerId !== drag.id) return;
+  const p = canvasPos(e);
+  if (drag.mode === "split") {
+    P.split = clamp(p.x / canvas.width, 0.08, 0.92);
+    UI.sp2.sync();
+  } else {
+    const dx = p.x - drag.x, dy = p.y - drag.y;
+    if (drag.mode === "L") {
+      P.panX += dx / (canvas.width * P.zoom) * (canvas.width / (canvas.width * P.split)) * -1 * 0 + dx / (canvas.width * P.split) / P.zoom * -1;
+      P.panY += dy / (canvas.height) / P.zoom;
+    } else {
+      const w = canvas.width * (1 - P.split);
+      P.panX -= dx / w / P.rzoom * 2 * 0.45 * 2;
+      P.panY += dy / canvas.height / P.rzoom * 2 * 0.45 * 2;
+    }
+    drag.x = p.x; drag.y = p.y;
+  }
+  syncURL();
+}, { passive: true });
+canvas.addEventListener("pointerup", (e) => { if (drag && e.pointerId === drag.id) drag = null; }, { passive: true });
+canvas.addEventListener("pointercancel", () => { drag = null; });
+canvas.addEventListener("wheel", (e) => {
+  const p = canvasPos(e);
+  const mode = panelOf(p.x);
+  e.preventDefault();
+  const f = Math.exp(-e.deltaY * 0.0018);
+  if (mode === "L") { P.zoom = clamp(P.zoom * f, 1, 64); UI.zoom.sync(); }
+  else { P.rzoom = clamp(P.rzoom * f, 0.5, 4); UI.rz.sync(); }
+  syncURL();
+}, { passive: false });
+/* pinch: two pointers, both panels zoom together (mask zoom on the left) */
+const touches = new Map();
+canvas.addEventListener("touchstart", (e) => {
+  if (e.touches.length === 2) {
+    const [a, b] = e.touches;
+    touches.clear(); touches.set(0, a); touches.set(1, b);
+    const d = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+    pinch = { d, zoom: P.zoom, rzoom: P.rzoom, mid: (a.clientX + b.clientX) / 2 };
+  }
+}, { passive: true });
+let pinch = null;
+canvas.addEventListener("touchmove", (e) => {
+  if (!pinch || e.touches.length !== 2) return;
+  const [a, b] = e.touches;
+  const d = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+  const r = canvas.getBoundingClientRect();
+  const left = pinch.mid - r.left < r.width * P.split;
+  if (left) { P.zoom = clamp(pinch.zoom * (d / pinch.d), 1, 64); UI.zoom.sync(); }
+  else { P.rzoom = clamp(pinch.rzoom * (d / pinch.d), 0.5, 4); UI.rz.sync(); }
+  e.preventDefault();
+}, { passive: false });
+canvas.addEventListener("touchend", (e) => { if (e.touches.length < 2) pinch = null; }, { passive: true });
+canvas.addEventListener("dblclick", () => { P.panX = 0; P.panY = 0; syncURL(); });
+window.addEventListener("keydown", (e) => {
+  if (e.target && e.target.tagName === "INPUT") return;
+  const k = e.key;
+  if (k >= "1" && k <= "6") setScene(+k - 1);
+  else if (k === " ") { P.calm = P.calm ? 0 : 1; syncButtons(); e.preventDefault(); }
+  else if (k === "r" || k === "R") toggleRec();
+  else if (k === "0") { P.zoom = 1; P.panX = 0; P.panY = 0; UI.zoom.sync(); }
+  else if (k === "t" || k === "T") { P.tour = P.tour ? 0 : 1; syncURL(); }
+  else if (k === "=" || k === "+") { P.zoom = clamp(P.zoom * 2, 1, 64); UI.zoom.sync(); }
+  else if (k === "-" || k === "_") { P.zoom = clamp(P.zoom / 2, 1, 64); UI.zoom.sync(); }
+});
+window.addEventListener("resize", () => fitCanvas());
+
+/* ------------------------------------------------------- 7. self-test */
+function runSelfTest(verbose) {
+  const out = [];
+  const conc = [];
+  const log = (s) => {
+    out.push(s);
+    console.log("[selftest] " + s);
+    const pre = $("stOut");
+    if (pre) { pre.textContent = out.join("\n"); $("selftest").hidden = false; }
+  };
+  const ok = (name, pass, detail) => {
+    log((pass ? "PASS  " : "FAIL  ") + name + (detail ? "   " + detail : ""));
+    return pass;
+  };
+  const t0 = performance.now();
+  const SNAP = Object.assign({}, P);
+  const restore = () => {
+    for (const k in P) delete P[k];
+    Object.assign(P, SNAP);
+    wTarget = [0, 0, 0, 0, 0, 0]; wTarget[P.scene] = 1;
+    if (P.mix > 0.001) { /* keep it simple: no cross-fade during a test */ }
+    wCur = wTarget.slice();
+    buildRT(); refreshTarget(); syncAll();
+  };
+  log("DOE self-test · N=" + P.N + " · precision " + PREC);
+  let all = true;
+  const f32 = PREC === "float32";
+  const tol = f32 ? 1e-3 : 3e-2;
+
+  /* (a) blazed ramp, period 8: peak at FFT bin N/8, single peak */
+  {
+    const N = 256;
+    const I = C.replay(blazeMask(N, 8, 1), N, P.lamDesign);
+    let pk = 0, pi = -1;
+    for (let i = 0; i < N * N; i++) if (I[i] > pk) { pk = I[i]; pi = i; }
+    const px = pi % N, py = (pi / N) | 0;
+    const want = N / 8;
+    let second = 0;
+    for (let i = 0; i < N * N; i++) if (i !== pi && I[i] > second) second = I[i];
+    const ratio = second / pk;
+    all = ok("a  blaze peak at bin N/8, single peak",
+      (px === want && py === 0) && ratio < 1e-3,
+      `peak bin (${px},${py}) want (${want},0), 2nd/1st = ${ratio.toExponential(2)}`) && all;
+  }
+
+  /* (b) replay spot displacement on screen is proportional to lambda (<= 2%) */
+  {
+    const N = 256, p = 600e-9, period = 8;
+    const lams = [450e-9, 532e-9, 640e-9];
+    const sin = [];
+    let aliased = false;
+    for (const lam of lams) {
+      const I = C.replay(blazeMask(N, period, 1), N, lam);
+      let pk = 0, pi = -1;
+      for (let i = 0; i < N * N; i++) if (I[i] > pk) { pk = I[i]; pi = i; }
+      sin.push(C.sinOfBin(pi % N, N, p, lam));
+      if (pi % N > N / 2) aliased = true;
+    }
+    const insideCutoff = sin.every((v, i) => v < lams[i] / (2 * p));
+    const r1 = sin[0] / sin[1], r2 = sin[2] / sin[1];
+    const e1 = Math.abs(r1 - lams[0] / lams[1]) / (lams[0] / lams[1]);
+    const e2 = Math.abs(r2 - lams[2] / lams[1]) / (lams[2] / lams[1]);
+    const cut = (lam) => lam / (2 * p);
+    all = ok("b  sin(theta) of the spot proportional to lambda",
+      e1 < 0.02 && e2 < 0.02 && !aliased && insideCutoff,
+      `450/532 err ${(e1 * 100).toFixed(3)}%, 640/532 err ${(e2 * 100).toFixed(3)}%, ` +
+      `sin(theta)=${sin.map((v) => v.toFixed(4)).join(" / ")} < lambda/2p = ${lams.map((l) => (cut(l)).toFixed(4)).join(" / ")}`) && all;
+  }
+
+  /* (c) Parseval: replay energy == mask energy (normalised FFT) */
+  {
+    let cpu = 0;
+    {
+      const N = 64;
+      let m = 0;
+      const phi = blazeMask(N, 8, 1);
+      for (let i = 0; i < N * N; i++) m += 1;         // unit modulus mask
+      const I = C.replay(phi, N, P.lamDesign);
+      let s = 0;
+      for (let i = 0; i < N * N; i++) s += I[i];
+      cpu = s / (m / (N * N));                        // expect 1
+    }
+    const c1 = ok("c1 Parseval (CPU FFT), sum|F|^2 == 1",
+      Math.abs(cpu - 1) < 1e-9, `sum I = ${cpu.toFixed(12)}`) ;
+    let gpu = null;
+    try {
+      const N = P.N;
+      const buf = new Float32Array(N * N * 4);
+      gl.bindFramebuffer(gl.FRAMEBUFFER, RT.I[1].fbo);
+      gl.readPixels(0, 0, N, N, gl.RGBA, gl.FLOAT, buf);
+      gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+      let s = 0;
+      for (let i = 0; i < N * N; i++) s += buf[4 * i];
+      gpu = s;
+    } catch (e) { gpu = null; }
+    const c2 = gpu === null
+      ? (log("WARN  c2 Parseval (GPU readback) skipped: readPixels unavailable"), true)
+      : ok("c2 Parseval (GPU, N=" + P.N + "), sum|F|^2 == 1",
+        Math.abs(gpu - 1) < tol, `sum I = ${gpu.toFixed(6)} (tol ${tol})`);
+    all = c1 && c2 && all;
+  }
+
+  /* (d) 8-sample blaze: zero-order fraction vs closed form, r in [0.5, 1.4] */
+  {
+    const N = 256, period = 8;
+    let worst = 0, worstR = 0;
+    const rows = [];
+    for (let k = 0; k <= 12; k++) {
+      const r = 0.5 + (0.9 * k) / 12;
+      const I = C.replay(blazeMask(N, period, r), N, P.lamDesign);
+      let tot = 0;
+      for (let i = 0; i < N * N; i++) tot += I[i];
+      const frac = I[0] / tot;
+      const want = C.blazeZero(r);
+      const err = Math.abs(frac - want);
+      if (err > worst) { worst = err; worstR = r; }
+      rows.push(`r=${r.toFixed(3)} got ${frac.toFixed(6)} want ${want.toFixed(6)} d=${err.toExponential(1)}`);
+    }
+    if (verbose) rows.forEach(log);
+    all = ok("d  blaze zero-order fraction == [sin(pi r)/(8 sin(pi r/8))]^2",
+      worst < tol, `worst |diff| ${worst.toExponential(2)} at r=${worstR.toFixed(3)} (tol ${tol})`) && all;
+  }
+
+  /* (e) same URL fragment -> identical frame at t=0 */
+  {
+    const frag = packState();
+    const urlOk = (() => {
+      const snap = JSON.stringify([P.scene, P.N, P.levels, P.charge, P.spots.toFixed(3), P.gratingPx, P.cellPx,
+        P.p.toFixed(12), P.lamIllum.toFixed(12), P.lamDesign.toFixed(12), P.zflF.toFixed(12),
+        P.text, P.seed, P.holoWin.toFixed(6), P.flat.toFixed(4)]);
+      const f2 = frag;
+      unpackState(f2);
+      const snap2 = JSON.stringify([P.scene, P.N, P.levels, P.charge, P.spots.toFixed(3), P.gratingPx, P.cellPx,
+        P.p.toFixed(12), P.lamIllum.toFixed(12), P.lamDesign.toFixed(12), P.zflF.toFixed(12),
+        P.text, P.seed, P.holoWin.toFixed(6), P.flat.toFixed(4)]);
+      return { ok: snap === snap2, snap, snap2 };
+    })();
+    const h = [];
+    for (let k = 0; k < 2; k++) {
+      unpackState(frag);
+      const keepCalm = P.calm;
+      P.calm = 1;
+      for (let i = 0; i < 6; i++) wCur[i] = wTarget[i];
+      refreshTarget();
+      gsIterate(12);
+      tapPass("design", -1, RT.design);
+      for (let c = 0; c < 3; c++) {
+        tapPass("chan", c, RT.tap[c]);
+        const F = fft2d(RT.tap[c], RT.pingA[c], P.N, false);
+        const pr = PR.intensity;
+        gl.useProgram(pr.p);
+        setTex(pr, "uSrc", 0, F);
+        bindRT(RT.I[c]); quad();
+      }
+      h.push(frameHash());
+      P.calm = keepCalm;
+    }
+    all = ok("e  URL fragment round-trip: identical fields, identical frame hash",
+      urlOk.ok && h[0] !== null && h[0] === h[1],
+      `hash ${h[0] === null ? "n/a" : "0x" + h[0].toString(16)} vs ${h[1] === null ? "n/a" : "0x" + h[1].toString(16)}, ` +
+      `fields ${urlOk.ok ? "identical" : "DIFFER"}`) && all;
+  }
+
+  restore();
+  log(`---- ${all ? "ALL TESTS PASS" : "FAILURES PRESENT"} (${(performance.now() - t0).toFixed(0)} ms) ----`);
+  const pre = $("stOut");
+  pre.textContent = out.join("\n");
+  $("selftest").hidden = false;
+  window.__selftestResult = { pass: all, lines: out };
+  return all;
+}
+document.addEventListener("click", (e) => { if (e.target.id === "selftest") $("selftest").hidden = true; });
+
+/* ------------------------------------------------------- 8. main loop */
+let last = 0, tPrev = 0, first = true, tourT = 0, nStage = 0, nTimer = 0;
+function frame(now) {
+  requestAnimationFrame(frame);
+  const t = now / 1000;
+  frameDt = Math.min(0.1, Math.max(1 / 240, t - tPrev));
+  tPrev = t;
+  fpsAvg += (1 / frameDt - fpsAvg) * 0.06;
+  audioUpdate();
+  if (!P.calm) tAnim = t; else tAnim = 0.0001;
+  /* tour: one scene per 10 s, on the same 10 s clock as the animations */
+  if (P.tour && !P.calm) {
+    if (Math.floor(t / 10) !== Math.floor((t - frameDt) / 10)) {
+      const nxt = (P.scene + 1) % SCENES.length;
+      setScene(nxt);
+    }
+  }
+  if (holoDirty) { refreshTarget(); holoDirty = false; }
+  renderScene(tAnim);
+  drawPanels(tAnim);
+  /* HUD */
+  const s = 450e-9 / (2 * P.p) * 1e3;
+  const valid = P.p >= 2 * P.lamDesign;
+  $("bValid").textContent = valid ? "scalar ok" : "scalar approx.";
+  $("bValid").className = "badge " + (valid ? "green" : "amber");
+  $("bFps").textContent = fpsAvg.toFixed(0) + " fps";
+  $("bN").textContent = "N=" + P.N + (nStage ? " ↓" : "");
+  $("fScale").textContent = "λ " + (P.lamIllum * 1e9).toFixed(0) + " nm · p " + (P.p * 1e9).toFixed(0) +
+    " nm · sin θmax " + (P.lamIllum / (2 * P.p)).toFixed(3) + " · etch " + fmtSI(P.lamDesign / (NMAT - 1));
+  if (wCur[5] > 0.01) $("fExp").textContent = "GS " + gsIters + " it · RMS " + gsRMS.toFixed(4) +
+    " · fragment " + packState().length + "/200";
+  if (first) { first = false; syncURL(); }
+  adaptN();
+}
+function adaptN() {
+  /* hold >= 50 fps: step N down (or the GS grid) when slow, back up when there
+     is headroom.  Mobile (coarse pointer) never goes above N=512. */
+  const mobile = window.matchMedia && window.matchMedia("(pointer:coarse)").matches;
+  const maxN = mobile ? 512 : 1024;
+  nTimer++;
+  if (nTimer < 30) return;
+  if (fpsAvg < 48) {
+    nStage = 1; 
+    if (P.N > 256) setN(256);
+    else if (P.holoDiv < 4 && wCur[5] > 0.01) { P.holoDiv = 4; buildRT(); refreshTarget(); }
+    nTimer = 0;
+  } else if (fpsAvg > 57.5 && P.N < maxN && nStage === 1) {
+    nStage = 2;
+    setN(P.N < 512 ? 512 : 1024);
+    nTimer = -240;
+  } else if (fpsAvg > 57.5 && P.N === 256 && P.holoDiv > 2) {
+    P.holoDiv = 2; buildRT(); refreshTarget(); nTimer = 0;
+  }
+}
+function setN(n) {
+  P.N = n;
+  buildRT();
+  refreshTarget();
+  document.getElementById("bN").textContent = "N=" + n;
+  if (window.__selftestResult) { /* stale */ }
+}
+
+/* console handle */
+window.DOE = {
+  P, C, packState, unpackState, gsTarget, dammannTable, renderText, SCENES, runSelfTest, setScene,
+  precision: () => PREC, report: null,
+  /* hooks used by tools/harness.mjs (and handy from the console) */
+  setN, snapWeights: () => { for (let i = 0; i < 6; i++) wCur[i] = wTarget[i]; },
+  gsIterate, renderScene, holoM,
+  /* live texture handles */
+  probe: () => ({ I: RT.I, design: RT.design, holo: RT.holo[0], tap: RT.tap[0], gsRMS, gsIters, holoM: holoM() }),
+};
+
+/* ------------------------------------------------------------- boot */
+function fatal(msg) {
+  const d = document.createElement("div");
+  d.id = "fatal";
+  d.innerHTML = "<b>DOE cannot run here.</b><br><br>" + msg +
+    "<br><br>This piece needs WebGL2 with renderable floating-point textures.<br>" +
+    "Diagnostics:<br>· window.DOE report below<br><br><pre style='white-space:pre-wrap'>" +
+    (window.__shaderError ? window.__shaderError : "no shader errors") + "</pre>";
+  $("stage").appendChild(d);
+}
+function boot() {
+  const err = initGL();
+  if (err) { fatal(err); return; }
+  const vs = $("vs.quad").textContent;
+  PR = {
+    tap: makeProg(vs, "fs.tap"), fft: makeProg(vs, "fs.fft"),
+    intensity: makeProg(vs, "fs.intensity"), reduce: makeProg(vs, "fs.reduce"),
+    gsmask: makeProg(vs, "fs.gsmask"), gsreplay: makeProg(vs, "fs.gsreplay"),
+    sem: makeProg(vs, "fs.sem"), replay: makeProg(vs, "fs.replay"), over: makeProg(vs, "fs.over"),
+  };
+  if (window.__shaderError) { fatal("A shader failed to compile: "); return; }
+  /* fragment state first: it decides N, seed, text ... */
+  if (location.hash.length > 1) {
+    const okFrag = unpackState(location.hash.slice(1));
+    if (!okFrag) console.warn("DOE: could not parse the URL fragment; using defaults");
+  }
+  if (P.N !== 256 && P.N !== 512 && P.N !== 1024) P.N = 512;
+  buildRT();
+  /* watermark + scale-bar text atlases */
+  const wmText = "DOE · the picture is not in here";
+  wmTexInfo = makeTex(...(() => { const t = renderText(wmText, 1); return [t.w, t.h, "r", t.data]; })());
+  wmTexInfo.label = wmText;
+  barTexInfo = makeTex(...(() => { const t = renderText("000 nm", 1); return [t.w, t.h, "r", t.data]; })());
+  barTexInfo.label = "";
+  buildUI();
+  refreshTarget();
+  fitCanvas();
+  const stageSize = () => { fitCanvas(); };
+  stageSize();
+  window.addEventListener("resize", stageSize);
+  requestAnimationFrame(frame);
+  /* re-render the scale-bar label whenever the nice length changes */
+  setInterval(() => {
+    const lab = barLabel();
+    if (lab !== barTexInfo.label) {
+      const t = renderText(lab, 1);
+      gl.bindTexture(gl.TEXTURE_2D, barTexInfo.tex);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.R8, t.w, t.h, 0, gl.RED, gl.UNSIGNED_BYTE, t.data);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+      barTexInfo.w = t.w; barTexInfo.h = t.h; barTexInfo.label = lab;
+    }
+  }, 250);
+  window.DOE.report = () => ({ N: P.N, precision: PREC, fps: Math.round(fpsAvg), gsRMS: +gsRMS.toFixed(5), gsIters, fragment: packState(), fragmentLen: packState().length });
+  window.DOE.runSelfTest = runSelfTest;
+  window.DOE.P = P;
+  if (/selftest/.test(location.search) || /selftest/.test(location.hash)) {
+    setTimeout(() => runSelfTest(true), 700);
+  }
+}
+if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+else boot();
+</script>
+</body>
+</html>
