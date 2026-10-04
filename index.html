@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DOE workbench — design a diffractive element and project it</title>
+    <style>
+      :root {
+        --bg: #0b0d12;
+        --panel: #141821;
+        --line: #232a36;
+        --text: #dfe6f2;
+        --muted: #8b97ad;
+        --accent: #62d0ff;
+        --accent2: #ffc857;
+        --good: #5ce39a;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font: 14px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      }
+      header {
+        padding: 16px 20px 12px;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: baseline;
+      }
+      h1 { font-size: 18px; margin: 0; letter-spacing: 0.02em; }
+      header .sub { color: var(--muted); font-size: 13px; }
+      main {
+        display: grid;
+        grid-template-columns: 320px minmax(0, 1fr);
+        gap: 18px;
+        padding: 18px 20px 40px;
+        align-items: start;
+      }
+      @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 14px;
+      }
+      .panel h2 {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        margin: 0 0 10px;
+      }
+      label { display: block; margin: 10px 0 3px; color: var(--muted); font-size: 12px; }
+      select, input[type="text"], input[type="number"] {
+        width: 100%;
+        background: #0e131c;
+        color: var(--text);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 7px 8px;
+        font: inherit;
+      }
+      input[type="range"] { width: 100%; accent-color: var(--accent); }
+      .row { display: flex; gap: 8px; }
+      .row > * { flex: 1; }
+      button {
+        background: linear-gradient(#1c2534, #16202c);
+        color: var(--text);
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        padding: 9px 12px;
+        font: inherit;
+        cursor: pointer;
+      }
+      button:hover { border-color: #35415380; background: linear-gradient(#22303f, #1a2431); }
+      button.primary { border-color: #2f7ea1; background: linear-gradient(#17384a, #122a38); color: #bdeaff; }
+      button:disabled { opacity: 0.5; cursor: default; }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 14px;
+      }
+      .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+      .card h3 {
+        font-size: 12px;
+        margin: 0;
+        padding: 8px 10px;
+        color: var(--muted);
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+      }
+      .card canvas { display: block; width: 100%; height: auto; image-rendering: pixelated; background: #05070a; }
+      .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
+      .metric { background: #0e131c; border: 1px solid var(--line); border-radius: 9px; padding: 8px 10px; }
+      .metric b { display: block; font-size: 17px; font-weight: 600; }
+      .metric span { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+      .metric.good b { color: var(--good); }
+      .metric.warn b { color: var(--accent2); }
+      .bar { height: 6px; background: #0e131c; border-radius: 4px; overflow: hidden; margin-top: 8px; }
+      .bar > i { display: block; height: 100%; width: 0; background: var(--accent); transition: width 0.1s linear; }
+      .hint { color: var(--muted); font-size: 12px; margin-top: 8px; }
+      code { color: #b7d6ea; }
+      .kbd { border: 1px solid var(--line); border-radius: 5px; padding: 0 4px; color: var(--muted); }
+      #log {
+        font: 12px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace;
+        white-space: pre-wrap;
+        color: var(--muted);
+        max-height: 150px;
+        overflow: auto;
+      }
+      a { color: var(--accent); }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>DOE workbench</h1>
+      <span class="sub">
+        design a diffractive optical element by complex-amplitude phase retrieval, then propagate the field to a screen and
+        measure the projected image — all in the browser, no dependencies
+      </span>
+    </header>
+
+    <main>
+      <section class="panel">
+        <h2>Projection head</h2>
+        <label for="mode">regime</label>
+        <select id="mode">
+          <option value="image-plane">image plane — sharp only at z (a real image)</option>
+          <option value="far-field">far field — Fourier CGH, sharp at any z</option>
+        </select>
+
+        <label for="algorithm">phase retrieval</label>
+        <select id="algorithm">
+          <option value="auto">auto (weighted GS / GS by regime)</option>
+          <option value="gs">Gerchberg–Saxton</option>
+          <option value="wgs">weighted GS (beam shaping)</option>
+          <option value="hio">hybrid input–output</option>
+        </select>
+
+        <label for="target">target</label>
+        <select id="target">
+          <option value="text">text</option>
+          <option value="disc">disc</option>
+          <option value="ring">ring</option>
+          <option value="dots">8x8 spot array</option>
+          <option value="checker">checker</option>
+          <option value="zone">zone plate</option>
+        </select>
+
+        <div id="textRow">
+          <label for="text">text to project</label>
+          <input id="text" type="text" value="DOE" maxlength="8" />
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="n">grid N</label>
+            <input id="n" type="number" value="128" min="64" max="512" step="64" />
+          </div>
+          <div>
+            <label for="pitch">pitch µm</label>
+            <input id="pitch" type="number" value="8" min="1" max="40" step="1" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="lambda">λ nm</label>
+            <input id="lambda" type="number" value="532" min="380" max="780" step="1" />
+          </div>
+          <div>
+            <label for="distance">z mm</label>
+            <input id="distance" type="number" value="30" min="1" max="500" step="1" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="iterations">iterations</label>
+            <input id="iterations" type="number" value="40" min="1" max="400" step="10" />
+          </div>
+          <div>
+            <label for="levels">phase levels</label>
+            <input id="levels" type="number" value="0" min="0" max="64" step="2" />
+          </div>
+        </div>
+
+        <label for="source">illumination</label>
+        <select id="source">
+          <option value="tophat">flat-top aperture</option>
+          <option value="gaussian">Gaussian beam</option>
+          <option value="annulus">annular</option>
+          <option value="plane">full plane wave</option>
+        </select>
+
+        <div class="row" style="margin-top: 12px">
+          <button id="run" class="primary">Design &amp; project</button>
+          <button id="stop" disabled>Stop</button>
+        </div>
+        <div class="bar"><i id="progress"></i></div>
+        <div class="hint" id="status">ready</div>
+      </section>
+
+      <section>
+        <div class="panel" style="margin-bottom: 14px">
+          <h2>Screen position</h2>
+          <label for="dz">distance from the element: <span id="dzLabel">30.0 mm</span></label>
+          <input id="dz" type="range" min="20" max="200" value="100" step="1" />
+          <div class="hint">
+            Drag to move the screen along the axis. An image-plane head is only sharp at its design distance; a
+            far-field head keeps the same picture at every distance (it just scales).
+          </div>
+        </div>
+
+        <div class="metrics" id="metrics"></div>
+
+        <div class="grid" style="margin-top: 14px">
+          <div class="card">
+            <h3><span>target</span><span id="targetInfo"></span></h3>
+            <canvas id="cTarget"></canvas>
+          </div>
+          <div class="card">
+            <h3><span>DOE phase profile</span><span>−π … +π</span></h3>
+            <canvas id="cPhase"></canvas>
+          </div>
+          <div class="card">
+            <h3><span>screen irradiance</span><span id="screenScale"></span></h3>
+            <canvas id="cScreen"></canvas>
+          </div>
+          <div class="card">
+            <h3><span>error at the screen</span><span>|projected − target|</span></h3>
+            <canvas id="cError"></canvas>
+          </div>
+          <div class="card" style="grid-column: 1 / -1">
+            <h3><span>along the axis</span><span id="stackInfo"></span></h3>
+            <canvas id="cStack"></canvas>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top: 14px">
+          <h2>geometry budget</h2>
+          <div class="metrics" id="geometry"></div>
+        </div>
+
+        <div class="panel" style="margin-top: 14px">
+          <h2>log</h2>
+          <div id="log"></div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/web/app.js"></script>
+  </body>
+</html>

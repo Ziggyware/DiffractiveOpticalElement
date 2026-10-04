@@ -1,0 +1,47 @@
+{
+  "name": "diffractive-optical-element",
+  "version": "1.0.0",
+  "description": "Design and simulate diffractive optical elements (DOEs) from complex-field interference, with a true physical-optics projection pipeline. Pure JavaScript, zero dependencies.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./field": "./src/field.js",
+    "./propagate": "./src/propagate.js",
+    "./doe": "./src/doe.js",
+    "./projector": "./src/projector.js",
+    "./png": "./src/png.js",
+    "./metrics": "./src/metrics.js",
+    "./interference": "./src/interference.js",
+    "./fft": "./src/fft.js",
+    "./color": "./src/color.js"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.js\"",
+    "bench": "node tools/bench.mjs",
+    "figures": "node tools/render-demo.mjs",
+    "demo": "node tools/render-demo.mjs",
+    "start": "node server.mjs",
+    "dev": "node server.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "diffractive-optics",
+    "doe",
+    "holography",
+    "cgh",
+    "computer-generated-hologram",
+    "gerchberg-saxton",
+    "phase-retrieval",
+    "fourier-optics",
+    "angular-spectrum",
+    "interference",
+    "projection",
+    "physical-optics",
+    "beam-shaping"
+  ],
+  "license": "MIT",
+  "private": false
+}
